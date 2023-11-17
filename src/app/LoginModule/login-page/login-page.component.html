@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle License Registration App</title>
+    <!-- Bootstrap CSS -->
+    <style>
+      /* Add some spacing between the radio buttons */
+      input[type="radio"] {
+          margin-right: 10px; /* Adjust this value to control the spacing */
+      }
+    .wrapper {
+  color: black;
+}
+
+/* Add some spacing between the radio buttons */
+input[type="radio"] {
+  margin-right: 10px; /* Adjust this value to control the spacing */
+}
+      
+  </style>
+    <link rel="stylesheet" href="./login-page.component.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head><body>
+
+<div class="wrapper fadeInDown zero-raduis">
+  	  <div id="formContent">
+  	    <!-- Tabs Titles -->
+
+  	  
+  	    <div class="fadeIn first">
+  	      <h2 class="my-5">Sign In</h2>
+  	    </div>
+
+  	    <form (ngSubmit)="onSubmit()">
+          <label for="admin">Admin</label>
+          <input type="radio" id="admin" name="role" value="ADMIN" [(ngModel)]="role">
+      
+          <label for="user">User</label>
+          <input type="radio" id="user" name="role" value="USER" [(ngModel)]="role">
+      
+     
+          
+  	      <input type="email" id="email" class="fadeIn second zero-raduis btn-success" [(ngModel)]="username" name="email" placeholder="email">
+  	      <input type="text" id="password" class="fadeIn third zero-raduis" [(ngModel)]="password" name="login" placeholder="password">
+		      <div id="formFooter">
+  	      	<a class="underlineHover" (click)="ForgotPassword()">Forgot Password?</a>
+  	      </div>
+  	      <input type="submit" class="fadeIn fourth zero-raduis" value="login" >
+  	      <h2>You don't have a account ?</h2>
+  	      <input type="button" class="fadeIn fourth zero-raduis pc" (click)="onRegister()" value="register">
+  	    </form>
+  	    
+
+  	  </div>
+  </div>
+      
+</body>
+</html>

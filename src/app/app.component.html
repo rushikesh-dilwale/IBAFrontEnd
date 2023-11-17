@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap 4 Navbar</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .navbar-nav {
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+        }
+
+        .nav-link {
+            transition: all 0.3s;
+        }
+
+        .nav-link:hover {
+            color:red;
+        }
+        .btn{
+            margin: 7px;
+            color: white;
+        }
+        h3{
+            color: white;  
+        }
+        body {
+            background-color: #222; /* Dark background color */
+            color: #fff; /* Text color */
+        }
+
+        .navbar {
+            background-color: #f0ebeb; /* Navbar background color */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="NAV-Details">
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+        <H3> <b>Internet Banking Application Capgemini</b></H3> 
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <!-- Left side navigation items -->
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <button type="button" class="btn btn-outline-info" (click)="homePage()">Home</button>
+                    
+                </li>
+                <li class="nav-item">
+                    <button type="button" class="btn btn-outline-info" (click)="about()">About Us</button>
+                </li>
+                <li class="nav-item">
+                    <button type="button" class="btn btn-outline-info" (click)="contact()">Contact Details</button>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <!-- Right side navigation items -->
+                <li class="nav-item">
+                    <button type="button" class="btn btn-outline-primary" (click)="login()">Login</button>                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+    
+
+    <!-- Bootstrap JS (Optional) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
+
+<router-outlet></router-outlet>
