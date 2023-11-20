@@ -14,13 +14,12 @@ export class AdminService {
   contextPath = 'http://localhost:5005/';
   addAccountEndPoint = this.contextPath + 'admin/saveSavingsAccountDto';
   getAccountEndPoint = this.contextPath + 'normalUser/account/userId?userId=';
-  linkAccount = "admin/usertoaccount";
+  linkAccount = this.contextPath + "admin/usertoaccount";
 
   doAccountRegistration(dto:AccountBasicDTO): Observable<AccountBasicDTO>{
     console.log('Inside Service '+dto.accountHolderName);
     let outcome = this.api.post<any>(
-      `${this.addAccountEndPoint}`,
-      dto
+      `${this.addAccountEndPoint}`, dto
     );
     return outcome;
   }
@@ -29,14 +28,13 @@ export class AdminService {
     this.getAccountEndPoint = this.getAccountEndPoint + userId;
     console.log('Inside Service Get account By UserId Service '+this.getAccountEndPoint);
     let outcome = this.api.get<AccountResponseDTO>(`${this.getAccountEndPoint}`);
-    console.log("before return from Service "+outcome);
     return outcome;
   }
 
-  doAccountLinkWithid(userId:number,accountid:number): Observable<AccountBasicDTO>
+  doAccountLinkWithid(accountid:number,userId:number): Observable<AccountBasicDTO>
   {
-    this.linkAccount+='?accNum='+accountid+"&userId"+userId;
-    console.log('Inside Service ');
+    this.linkAccount+="?accNum="+accountid+"&userId="+userId;
+    console.log('Inside Service of do account link with user.');
     let outcome = this.api.put<AccountBasicDTO>(`${this.linkAccount}`,[]);
     return outcome;
   }

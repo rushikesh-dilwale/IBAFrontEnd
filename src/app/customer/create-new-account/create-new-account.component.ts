@@ -31,28 +31,24 @@ export class CreateNewAccountComponent {
     console.log(this.dto+' - account type '+accType);
     this.__adminService.doAccountRegistration(this.dto).subscribe(
       (data) => {
-        alert('Account Added. Account Num - '+data.accountId);
+        console.log('Account Added. Account Num - '+data.accountId);
         localStorage.setItem("accountId",data.accountId+'');
 
-        if (data.accountHolderName != ''){
-          this.dto = new AccountBasicDTO(0,'','','',0,'',0,0,'');
-        }
-
         // ---- code to link account with user id 
-        let usercode = localStorage.getItem('userId');
+        let usercode = localStorage.getItem('userID');
         if(usercode != null)
         {
-          this.__adminService.doAccountLinkWithid(parseInt(usercode),data.accountId).
+          this.__adminService.doAccountLinkWithid(data.accountId,parseInt(usercode)).
           subscribe((data)=>{
             alert("Account Openned : "+data.accountId);
           },
           (err)=>{
-            console.log(err.err);
+            console.log('Account Creation Error '+err.err);
           })
         }
       },
       (err) => {
-        console.log('Error '+err);
+        console.log('Account Creation Error '+err);
       }
     )
   }
