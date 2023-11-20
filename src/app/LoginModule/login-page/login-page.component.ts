@@ -13,25 +13,27 @@ import { LoginService } from 'src/app/Service/login.service';
   `,
 })
 export class LoginPageComponent {
-  username: string = '';
-  password: string = '';
-  role:string="";
   isLogin:boolean=false;
 
-  
-  login:LoginDTO= new LoginDTO('', '','');
-  constructor(private router: Router, private __loginService: LoginService) {}
+  login:LoginDTO= new LoginDTO(
+    '',
+    '',
+    ''
+    );
+
+  constructor(
+    private router: Router, 
+    private __loginService: LoginService) {}
 
   onSubmit() {
-    this.login.userName = this.username;
-    this.login.password = this.password;
 
-    if (this.role === 'USER') {
+    if (this.login.role === 'CUSTOMER') {
       this.__loginService.doLoginCheck(this.login).subscribe(
         (data) => {
           this.isLogin = true;
           if (data != null) {
-            localStorage.setItem(data.userName, data.token);
+            localStorage.setItem(data.username, data.token);
+            localStorage.setItem('userID', data.userId+'');
             localStorage.setItem('loginStatus', 'true');
 
             // Update the navigation to CustomerComponent after successful login
@@ -45,26 +47,27 @@ export class LoginPageComponent {
           console.log('Error ' + err);
         }
       );
-    } else {
-      this.__loginService.doAdminLogin(this.login).subscribe(
-        (data) => {
-          this.isLogin = true;
-          if (data != null) {
-            localStorage.setItem(data.userName, data.token);
-            localStorage.setItem('loginStatus', 'true');
+    } 
+    // else {
+    //   this.__loginService.doAdminLogin(this.login).subscribe(
+    //     (data) => {
+    //       this.isLogin = true;
+    //       if (data != null) {
+    //         localStorage.setItem(data.userName, data.role);
+    //         localStorage.setItem('loginStatus', 'true');
 
-            // Update the navigation to CustomerComponent after successful login
-            this.router.navigate(['/customer']);
-          } else {
-            this.router.navigate(['/login']);
-          }
-          console.log(data);
-        },
-        (err) => {
-          console.log('Error ' + err);
-        }
-      );
-    }
+    //         // Update the navigation to CustomerComponent after successful login
+    //         this.router.navigate(['/customer']);
+    //       } else {
+    //         this.router.navigate(['/login']);
+    //       }
+    //       console.log(data);
+    //     },
+    //     (err) => {
+    //       console.log('Error ' + err);
+    //     }
+    //   );
+    // }
   }
 
   onRegister() {
@@ -74,8 +77,5 @@ export class LoginPageComponent {
   ForgotPassword() {
     this.router.navigate(['/forgot']);
   }
-
-
-
 
 }

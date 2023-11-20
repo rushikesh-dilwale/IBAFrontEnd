@@ -1,0 +1,88 @@
+<div style="display: flex;justify-content: space-evenly;">
+
+    <div>
+        <form (ngSubmit) = "doSubmit(accType.value)">
+            <table>
+                <tr>
+                    <td>
+                        Select Account Type
+                    </td>
+                    <td>
+                        <select #accType>
+                            <option selected="false">Select Account Type</option>
+                            <option value="saving">Saving</option>
+                            <option value="current">Current</option>
+                            
+                        </select>
+                        
+                    </td>
+                    <td>
+
+                    </td>
+                </tr>
+        
+        
+                <tr>
+                    <td>Account Holder Name - </td>
+                    <td>
+                        <input required="true"  type="text" [(ngModel)]="dto.accountHolderName"   id="accname" name="accname"   #holderName="ngModel"/>
+                    </td>
+                    <td>
+                        
+                        <div *ngIf="holderName.invalid == true && holderName.pristine == false && holderName.touched==true" 
+                                    style="color:red;font-style: italic;font-size: small;">
+                            Account Holder Name cannot be empty
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Phone Number - </td>
+                    <td>
+                        <input type="text" [(ngModel)]="dto.phoneNo" id="phone" name="PHONE"/>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Email ID - </td>
+                    <td>
+                        <input type="text" [(ngModel)]="dto.emailId" id="email" name="email"/>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Age - </td>
+                    <td>
+                        <input type="number" [(ngModel)]="dto.age" id="age" name="age"/>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Gender - </td>
+                    <td>
+                        <input type="text" [(ngModel)]="dto.gender" id="gender" name="gender"/>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Balance - </td>
+                    <td>
+                        <input type="number" [(ngModel)]="dto.balance" id="balance" name="balance"/>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Date of Account Opening - </td>
+                    <td>
+                        <input type="date" [(ngModel)]="dto.dateOfOpening" id="dateOfOpening" name="dateOfOpening"/>
+                    </td>
+                    <td></td>
+                </tr>
+               
+                
+            </table>
+            
+            <input type="submit" class="btn btn-primary ms-2" value="Add Account" />
+        </form>
+    </div>
+</div>
+

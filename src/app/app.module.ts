@@ -17,6 +17,8 @@ import { PolicyComponent } from './User/customer/policy/policy.component';
 import { TransactionComponent } from './User/customer/transaction/transaction.component';
 import { DebitCardComponent } from './User/customer/debit-card/debit-card.component';
 import { NomineeComponent } from './User/customer/nominee/nominee.component';
+import { CustomerModule } from './customer/customer.module';
+import { AdminModule } from './admin/admin.module';
 
 
 @NgModule({
@@ -37,7 +39,8 @@ import { NomineeComponent } from './User/customer/nominee/nominee.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,FormsModule,HttpClientModule
+    AppRoutingModule,FormsModule,HttpClientModule,
+    CustomerModule, AdminModule
   ],
   providers: [],
   bootstrap: [AppComponent]

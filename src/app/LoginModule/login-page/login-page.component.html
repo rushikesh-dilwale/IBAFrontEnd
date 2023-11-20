@@ -9,7 +9,7 @@
     <style>
       /* Add some spacing between the radio buttons */
       input[type="radio"] {
-          margin-right: 10px; /* Adjust this value to control the spacing */
+          margin-right: 100px; /* Adjust this value to control the spacing */
       }
     .wrapper {
   color: black;
@@ -36,15 +36,14 @@ input[type="radio"] {
 
   	    <form (ngSubmit)="onSubmit()">
           <label for="admin">Admin</label>
-          <input type="radio" id="admin" name="role" value="ADMIN" [(ngModel)]="role">
+          <input type="radio" id="admin" name="role" value="ADMIN" [(ngModel)]="login.role">
       
-          <label for="user">User</label>
-          <input type="radio" id="user" name="role" value="USER" [(ngModel)]="role">
+          <label for="user">Customer</label>
+          <input type="radio" id="customer" name="role" value="CUSTOMER" [(ngModel)]="login.role">
       
-     
-          
-  	      <input type="email" id="email" class="fadeIn second zero-raduis btn-success" [(ngModel)]="username" name="email" placeholder="email">
-  	      <input type="text" id="password" class="fadeIn third zero-raduis" [(ngModel)]="password" name="login" placeholder="password">
+  	      <input type="email" id="email" class="fadeIn second zero-raduis btn-success" [(ngModel)]="login.userName" name="email" placeholder="email">
+  	      <input type="text" id="password" class="fadeIn third zero-raduis" [(ngModel)]="login.password" name="login" placeholder="password">
+
 		      <div id="formFooter">
   	      	<a class="underlineHover" (click)="ForgotPassword()">Forgot Password?</a>
   	      </div>

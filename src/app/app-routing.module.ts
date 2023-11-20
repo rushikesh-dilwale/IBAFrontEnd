@@ -7,6 +7,8 @@ import { ResetPasswordComponent } from './LoginModule/reset-password/reset-passw
 import { HomeComponantComponent } from './LoginModule/home-componant/home-componant.component';
 import { AdminHomeComponent } from './User/admin-home/admin-home.component';
 import { CustomerComponent } from './User/customer/customer.component';
+import { CreateNewAccountComponent } from './customer/create-new-account/create-new-account.component';
+import { MyAccountComponent } from './customer/my-account/my-account.component';
 
 const routes: Routes = [
   {
@@ -28,7 +30,9 @@ const routes: Routes = [
     path:"adminhome",
     component:AdminHomeComponent
   },
-  { path: 'customer', component: CustomerComponent }
+  { path: 'customer', component: CustomerComponent },
+  { path: 'register/account', component: CreateNewAccountComponent },
+  { path: 'personal/account', component: MyAccountComponent}
   
 ];
 

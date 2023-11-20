@@ -2,17 +2,17 @@ export class LoginDTO {
   userName: string = '';
   password: string = '';
   role: string;
-  token: string;
+  //token: string;
 
   constructor(
     user: string,
     pass: string,
-    role: string = "USER",
-    token: string = ''
+    role: string = "CUSTOMER"
+   // token: string = ''
   ) {
     this.userName = user;
     this.password = pass;
-    this.role = "USER";
-    this.token = token;
+    this.role = role;
+   // this.token = token;
   }
 }
