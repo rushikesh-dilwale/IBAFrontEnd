@@ -9,6 +9,7 @@ import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import { CustomerComponent } from './customer/home-customer/customer.component';
 import { CreateNewAccountComponent } from './customer/create-new-account/create-new-account.component';
 import { MyAccountComponent } from './customer/my-account/my-account.component';
+import { GetallaccountsComponent } from './admin/getallaccounts/getallaccounts.component';
 
 const routes: Routes = [
   {
@@ -32,7 +33,8 @@ const routes: Routes = [
   },
   { path: 'customer', component: CustomerComponent },
   { path: 'register/account', component: CreateNewAccountComponent },
-  { path: 'personal/account', component: MyAccountComponent}
+  { path: 'personal/account', component: MyAccountComponent },
+  { path: 'admin/all/account', component: GetallaccountsComponent }
   
 ];
 

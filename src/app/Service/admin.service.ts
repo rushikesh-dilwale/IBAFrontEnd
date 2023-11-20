@@ -2,7 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AccountBasicDTO } from '../DTO/account-basic-dto';
-import { AccountResponseDTO } from '../account-response-dto';
+import { AccountResponseDTO } from '../DTO/account-response-dto';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +15,7 @@ export class AdminService {
   addAccountEndPoint = this.contextPath + 'admin/saveSavingsAccountDto';
   getAccountEndPoint = this.contextPath + 'normalUser/account/userId?userId=';
   linkAccount = this.contextPath + "admin/usertoaccount";
+  getAllAccounts = this.contextPath + "admin/getallaccounts";
 
   doAccountRegistration(dto:AccountBasicDTO): Observable<AccountBasicDTO>{
     console.log('Inside Service '+dto.accountHolderName);
@@ -36,6 +37,12 @@ export class AdminService {
     this.linkAccount+="?accNum="+accountid+"&userId="+userId;
     console.log('Inside Service of do account link with user.');
     let outcome = this.api.put<AccountBasicDTO>(`${this.linkAccount}`,[]);
+    return outcome;
+  }
+
+  dogetAllAccounts(): Observable<AccountResponseDTO[]>{
+    console.log("Inside Service of Get all Accounts.");
+    let outcome = this.api.get<AccountResponseDTO[]>(`${this.getAllAccounts}`);
     return outcome;
   }
 }
