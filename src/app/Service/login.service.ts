@@ -26,8 +26,8 @@ export class LoginService {
     return this.api.post<LoginResponse>(`${this.contextPath}`, dto);
   }
 
-  doAdminLogin(dto: LoginDTO): Observable<LoginDTO> {
-    return this.api.post<any>(`${this.contextPath}`, dto);
+  doAdminLogin(dto: LoginDTO): Observable<LoginResponse> {
+    return this.api.post<LoginResponse>(`${this.contextPath}`, dto);
   }
 
   doVerifyDetails(resetDto:ResetPass): Observable<boolean>{
