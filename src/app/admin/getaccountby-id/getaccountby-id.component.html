@@ -1,0 +1,15 @@
+<label for="accid">Enter Account Number</label>
+<input type="number" [(ngModel)]="accId" id="accid" name="accid"/><br>
+<button class="btn btn-primary ms-2" (click)="doLoad(accId)">Show Account By Account Id</button>
+<div>
+    <h2>Account Details of Account Number - {{ accId }}</h2>
+    <p>Account ID: {{ account.accountId }}</p>
+    <p>Account Holder Name: {{ account.accountHolderName }}</p>
+    <p>Account Holder Age: {{ account.age }}</p>
+    <p>Account Balance: {{ account.balance }}</p>
+    <p>Account Holder Email: {{ account.emailId }}</p>
+    <p>Account Holder Gender: {{ account.gender }}</p>
+    <p>Interest Rate: {{ account.interestRate }}</p>
+    <p>Phone Number: {{ account.phoneNo }}</p>
+    <p>Account Opening Date: {{ account.dateOfOpening }}</p>
+</div>

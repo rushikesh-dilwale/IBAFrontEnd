@@ -1,4 +1,5 @@
 <h2>All Accounts</h2>
+<button class="btn btn-primary ms-2" (click)="doLoad()">Refresh</button>
 <table id = "accounts">
     <thead>
         <tr>
@@ -14,6 +15,16 @@
         </tr>
     </thead>
     <tbody id="accountBody">
-
+        <tr *ngFor="let account of allAccounts">
+            <td>{{ account.accountId }}</td>
+            <td>{{ account.accountHolderName }}</td>
+            <td>{{ account.phoneNo }}</td>
+            <td>{{ account.emailId }}</td>
+            <td>{{ account.age }}</td>
+            <td>{{ account.gender }}</td>
+            <td>{{ account.interestRate }}</td>
+            <td>{{ account.balance }}</td>
+            <td>{{ account.dateOfOpening }}</td>
+          </tr>
     </tbody>
 </table>
