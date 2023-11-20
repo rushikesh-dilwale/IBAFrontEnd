@@ -16,15 +16,6 @@ export class GetallaccountsComponent {
     __adminService: AdminService
   ){
     this.__adminService = __adminService;
-
-    // this.__adminService.dogetAllAccounts().subscribe(
-    //   (data) => {
-    //     this.allAccounts = data;
-    //   },
-    //   (err) => {
-    //     console.log(err);
-    //   }
-    // );
   }
 
   doLoad(){

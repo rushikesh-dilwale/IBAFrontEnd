@@ -16,6 +16,7 @@ export class AdminService {
   getAccountEndPoint = this.contextPath + 'normalUser/account/userId?userId=';
   linkAccount = this.contextPath + "admin/usertoaccount";
   getAllAccounts = this.contextPath + "admin/getallaccounts";
+  getAccountById = this.contextPath + "normalUser/getAccountById?accountId=";
 
   doAccountRegistration(dto:AccountBasicDTO): Observable<AccountBasicDTO>{
     console.log('Inside Service '+dto.accountHolderName);
@@ -43,6 +44,13 @@ export class AdminService {
   dogetAllAccounts(): Observable<AccountResponseDTO[]>{
     console.log("Inside Service of Get all Accounts.");
     let outcome = this.api.get<AccountResponseDTO[]>(`${this.getAllAccounts}`);
+    return outcome;
+  }
+
+  dogetAccountById(accountId: number): Observable<AccountResponseDTO>{
+    console.log("Inside Service of Get Account By Account Id.");
+    var endpoint = this.getAccountById + accountId;
+    let outcome = this.api.get<AccountResponseDTO>(`${endpoint}`);
     return outcome;
   }
 }

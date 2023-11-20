@@ -10,6 +10,7 @@ import { CustomerComponent } from './customer/home-customer/customer.component';
 import { CreateNewAccountComponent } from './customer/create-new-account/create-new-account.component';
 import { MyAccountComponent } from './customer/my-account/my-account.component';
 import { GetallaccountsComponent } from './admin/getallaccounts/getallaccounts.component';
+import { GetaccountbyIdComponent } from './admin/getaccountby-id/getaccountby-id.component';
 
 const routes: Routes = [
   {
@@ -34,7 +35,8 @@ const routes: Routes = [
   { path: 'customer', component: CustomerComponent },
   { path: 'register/account', component: CreateNewAccountComponent },
   { path: 'personal/account', component: MyAccountComponent },
-  { path: 'admin/all/account', component: GetallaccountsComponent }
+  { path: 'admin/all/account', component: GetallaccountsComponent },
+  { path: 'admin/id', component: GetaccountbyIdComponent }
   
 ];
 
