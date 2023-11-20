@@ -48,26 +48,27 @@ export class LoginPageComponent {
         }
       );
     } 
-    // else {
-    //   this.__loginService.doAdminLogin(this.login).subscribe(
-    //     (data) => {
-    //       this.isLogin = true;
-    //       if (data != null) {
-    //         localStorage.setItem(data.userName, data.role);
-    //         localStorage.setItem('loginStatus', 'true');
+    else if(this.login.role === 'ADMIN') {
+      this.__loginService.doAdminLogin(this.login).subscribe(
+        (data) => {
+          this.isLogin = true;
+          if (data != null) {
+            
+            localStorage.setItem(data.username, data.token);
+            localStorage.setItem('userID', data.userId+'');
+            localStorage.setItem('loginStatus', 'true');
 
-    //         // Update the navigation to CustomerComponent after successful login
-    //         this.router.navigate(['/customer']);
-    //       } else {
-    //         this.router.navigate(['/login']);
-    //       }
-    //       console.log(data);
-    //     },
-    //     (err) => {
-    //       console.log('Error ' + err);
-    //     }
-    //   );
-    // }
+            this.router.navigate(['/adminhome']);
+          } else {
+            this.router.navigate(['/login']);
+          }
+          console.log(data);
+        },
+        (err) => {
+          console.log('Error ' + err);
+        }
+      );
+    }
   }
 
   onRegister() {
