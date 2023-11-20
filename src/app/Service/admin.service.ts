@@ -2,6 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AccountBasicDTO } from '../DTO/account-basic-dto';
+import { AccountResponseDTO } from '../account-response-dto';
 
 @Injectable({
   providedIn: 'root'
@@ -24,10 +25,14 @@ export class AdminService {
     return outcome;
   }
 
-  dogetRegisteredAccount(userId: number): Observable<AccountBasicDTO>{
+  dogetRegisteredAccount(userId: number): Observable<AccountResponseDTO>{
     this.getAccountEndPoint = this.getAccountEndPoint + userId;
-    console.log('Inside Service Get account By UserId Service');
-    let outcome = this.api.get<AccountBasicDTO>(`${this.getAccountEndPoint}`);
+    console.log('Inside Service Get account By UserId Service '+this.getAccountEndPoint);
+    let outcome = this.api.get<AccountResponseDTO>(`${this.getAccountEndPoint}`);
+    console.log("before return from Service "+outcome);
+    
+    
+    
     return outcome;
   }
 

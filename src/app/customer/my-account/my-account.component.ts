@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AccountBasicDTO } from 'src/app/DTO/account-basic-dto';
 import { AdminService } from 'src/app/Service/admin.service';
+import { AccountResponseDTO } from 'src/app/account-response-dto';
 
 @Component({
   selector: 'app-my-account',
@@ -10,7 +11,7 @@ import { AdminService } from 'src/app/Service/admin.service';
 })
 export class MyAccountComponent {
 
-    dto: AccountBasicDTO = new AccountBasicDTO(
+    dto: AccountResponseDTO = new AccountResponseDTO(
       0,
       '',
       '',
@@ -34,18 +35,20 @@ export class MyAccountComponent {
     }
 
     doShowMyAccount(){
-
       let id = localStorage.getItem("userID");
       console.log(id);
       if (id !== null) {
         let userId = parseInt(id, 10);
         this.__adminService.dogetRegisteredAccount(userId).subscribe(
           (data) => {
+            console.log("inside data "+data);
             this.dto = data;
             localStorage.setItem("accountId",data.accountId+'');
           }, 
           (err) => {
-            console.log('Error '+err);
+            console.log(err.error);
+            console.log(err.statusText);
+            console.log(err.message);
           }
         )
       } else {

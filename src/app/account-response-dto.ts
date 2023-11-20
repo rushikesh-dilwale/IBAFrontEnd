@@ -1,4 +1,4 @@
-export class AccountBasicDTO {
+export class AccountResponseDTO {
     accountId:number;
     accountHolderName:string;
     phoneNo:string;
