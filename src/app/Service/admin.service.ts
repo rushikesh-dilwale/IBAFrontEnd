@@ -30,9 +30,6 @@ export class AdminService {
     console.log('Inside Service Get account By UserId Service '+this.getAccountEndPoint);
     let outcome = this.api.get<AccountResponseDTO>(`${this.getAccountEndPoint}`);
     console.log("before return from Service "+outcome);
-    
-    
-    
     return outcome;
   }
 

@@ -1,5 +1,5 @@
 import { Component, NgModule } from '@angular/core';
-import { BeneficiaryComponent } from './beneficiary/beneficiary.component';
+import { BeneficiaryComponent } from '../beneficiary/beneficiary.component';
 
 
 

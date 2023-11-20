@@ -4,8 +4,6 @@ import { LinkUserToAccountComponent } from './link-user-to-account/link-user-to-
 
 @NgModule({
   declarations: [
-
-  
     LinkUserToAccountComponent
   ],
   imports: [

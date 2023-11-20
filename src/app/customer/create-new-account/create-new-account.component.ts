@@ -34,27 +34,22 @@ export class CreateNewAccountComponent {
         alert('Account Added. Account Num - '+data.accountId);
         localStorage.setItem("accountId",data.accountId+'');
 
-         /* below code will be removed after login code */
-        //localStorage.setItem("userId",data.accountId+'');
-
         if (data.accountHolderName != ''){
           this.dto = new AccountBasicDTO(0,'','','',0,'',0,0,'');
         }
 
         // ---- code to link account with user id 
-        // let usercode = localStorage.getItem('userId');
-        // if(usercode != null)
-        // {
-        //   this.__adminService.doAccountLinkWithid(parseInt(usercode),data.accountId).
-        //   subscribe(data=>{
-        //     alert("Account Openned : "+data.accountId);
-        //   },
-        //   err=>{
-
-        //   })
-       
-        // }
-       
+        let usercode = localStorage.getItem('userId');
+        if(usercode != null)
+        {
+          this.__adminService.doAccountLinkWithid(parseInt(usercode),data.accountId).
+          subscribe((data)=>{
+            alert("Account Openned : "+data.accountId);
+          },
+          (err)=>{
+            console.log(err.err);
+          })
+        }
       },
       (err) => {
         console.log('Error '+err);

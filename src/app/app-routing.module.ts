@@ -5,8 +5,8 @@ import { RegistrationComponent } from './LoginModule/registration/registration.c
 import { ForgotPasswordComponent } from './LoginModule/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './LoginModule/reset-password/reset-password.component';
 import { HomeComponantComponent } from './LoginModule/home-componant/home-componant.component';
-import { AdminHomeComponent } from './User/admin-home/admin-home.component';
-import { CustomerComponent } from './User/customer/customer.component';
+import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
+import { CustomerComponent } from './customer/home-customer/customer.component';
 import { CreateNewAccountComponent } from './customer/create-new-account/create-new-account.component';
 import { MyAccountComponent } from './customer/my-account/my-account.component';
 

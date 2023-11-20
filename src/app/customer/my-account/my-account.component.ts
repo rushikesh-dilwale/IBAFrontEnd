@@ -38,7 +38,7 @@ export class MyAccountComponent {
       let id = localStorage.getItem("userID");
       console.log(id);
       if (id !== null) {
-        let userId = parseInt(id, 10);
+        let userId = parseInt(id);
         this.__adminService.dogetRegisteredAccount(userId).subscribe(
           (data) => {
             console.log("inside data "+data);
@@ -56,5 +56,4 @@ export class MyAccountComponent {
       }
       }
 
-    
 }
