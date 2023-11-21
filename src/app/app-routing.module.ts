@@ -36,8 +36,8 @@ const routes: Routes = [
   { path: 'register/account', component: CreateNewAccountComponent },
   { path: 'personal/account', component: MyAccountComponent },
   { path: 'admin/all/account', component: GetallaccountsComponent },
-  { path: 'admin/id', component: GetaccountbyIdComponent }
-  
+  { path: 'admin/id', component: GetaccountbyIdComponent },
+  { path: 'customer/home', component: CustomerComponent }
 ];
 
 @NgModule({

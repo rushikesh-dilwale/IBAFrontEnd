@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AccountResponseDTO } from 'src/app/DTO/account-response-dto';
 import { AdminService } from 'src/app/Service/admin.service';
 
@@ -7,7 +7,7 @@ import { AdminService } from 'src/app/Service/admin.service';
   templateUrl: './getallaccounts.component.html',
   styleUrls: ['./getallaccounts.component.css']
 })
-export class GetallaccountsComponent {
+export class GetallaccountsComponent implements OnInit {
 
   allAccounts: AccountResponseDTO[] = [];
   __adminService: AdminService;
@@ -16,6 +16,9 @@ export class GetallaccountsComponent {
     __adminService: AdminService
   ){
     this.__adminService = __adminService;
+  }
+  ngOnInit(): void {
+    this.doLoad()
   }
 
   doLoad(){
