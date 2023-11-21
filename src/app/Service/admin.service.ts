@@ -12,32 +12,41 @@ export class AdminService {
   constructor(private api: HttpClient) { }
 
   contextPath = 'http://localhost:5005/';
-  addAccountEndPoint = this.contextPath + 'admin/saveSavingsAccountDto';
+  addSavingAccountEndPoint = this.contextPath + 'admin/saveSavingsAccountDto';
+  addCurrentAccountEndPoint = this.contextPath + 'admin/saveCurrentAcoountDto';
   getAccountEndPoint = this.contextPath + 'normalUser/account/userId?userId=';
   linkAccount = this.contextPath + "admin/usertoaccount";
   getAllAccounts = this.contextPath + "admin/getallaccounts";
   getAccountById = this.contextPath + "normalUser/getAccountById?accountId=";
 
-  doAccountRegistration(dto:AccountBasicDTO): Observable<AccountBasicDTO>{
-    console.log('Inside Service '+dto.accountHolderName);
-    let outcome = this.api.post<any>(
-      `${this.addAccountEndPoint}`, dto
+  doSavingAccountRegistration(dto:AccountBasicDTO): Observable<AccountBasicDTO>{
+    console.log('Inside Service of saving account register'+dto.accountHolderName);
+    let outcome = this.api.post<AccountBasicDTO>(
+      `${this.addSavingAccountEndPoint}`, dto
+    );
+    return outcome;
+  }
+
+  doCurrentAccountRegistration(dto:AccountBasicDTO): Observable<AccountBasicDTO>{
+    console.log('Inside Service of current account register'+dto.accountHolderName);
+    let outcome = this.api.post<AccountBasicDTO>(
+      `${this.addCurrentAccountEndPoint}`, dto
     );
     return outcome;
   }
 
   dogetRegisteredAccount(userId: number): Observable<AccountResponseDTO>{
-    this.getAccountEndPoint = this.getAccountEndPoint + userId;
+    var endpoint = this.getAccountEndPoint + userId;
     console.log('Inside Service Get account By UserId Service '+this.getAccountEndPoint);
-    let outcome = this.api.get<AccountResponseDTO>(`${this.getAccountEndPoint}`);
+    let outcome = this.api.get<AccountResponseDTO>(`${endpoint}`);
     return outcome;
   }
 
   doAccountLinkWithid(accountid:number,userId:number): Observable<AccountBasicDTO>
   {
-    this.linkAccount+="?accNum="+accountid+"&userId="+userId;
+    var endpoint = this.linkAccount + "?accNum="+accountid+"&userId="+userId;
     console.log('Inside Service of do account link with user.');
-    let outcome = this.api.put<AccountBasicDTO>(`${this.linkAccount}`,[]);
+    let outcome = this.api.put<AccountBasicDTO>(`${endpoint}`,[]);
     return outcome;
   }
 

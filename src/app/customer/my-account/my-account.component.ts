@@ -9,7 +9,11 @@ import { AccountResponseDTO } from 'src/app/DTO/account-response-dto';
   templateUrl: './my-account.component.html',
   styleUrls: ['./my-account.component.css']
 })
-export class MyAccountComponent {
+export class MyAccountComponent implements OnInit{
+
+    ngOnInit(): void {
+      this.doShowMyAccount()
+    }
 
     dto: AccountResponseDTO = new AccountResponseDTO(
       0,
