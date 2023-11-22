@@ -16,7 +16,7 @@ export class LoginService {
   contextPath = 'http://localhost:5005/user/login';
   verifyOtpPath ='http://localhost:5005/user/verifyOtp';
   verifyUser ='http://localhost:5005/user/getByEmail';
-  sendMail='http://localhost:5005/user/emailotp';
+  sendMail='http://localhost:5005/user/send';
   updatepass = 'http://localhost:5005/user/resetpassword';
   registerApplicant= 'http://localhost:5005/user/addnewuser';
 
@@ -36,11 +36,15 @@ export class LoginService {
 
   doVerifyUser(loginDto:LoginDTO):Observable<boolean>{
         console.log("Inside DO verify ")
+        console.log(loginDto);
+        
     return this.api.post<any>(`${this.verifyUser}`, loginDto);
   }
 
   doSendEmail(mailDto:Mail):Observable<boolean>{
        console.log("inside do send email"); 
+       console.log(mailDto);
+       
     return this.api.post<any>(`${this.sendMail}`, mailDto);
   }
 

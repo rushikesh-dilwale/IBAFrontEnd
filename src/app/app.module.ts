@@ -12,11 +12,6 @@ import { ResetPasswordComponent } from './LoginModule/reset-password/reset-passw
 import { HomeComponantComponent } from './LoginModule/home-componant/home-componant.component';
 import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import { CustomerComponent } from './customer/home-customer/customer.component';
-import { BeneficiaryComponent } from './customer/beneficiary/beneficiary.component';
-import { PolicyComponent } from './customer/policy/policy.component';
-import { TransactionComponent } from './customer/transaction/transaction.component';
-import { DebitCardComponent } from './customer/debit-card/debit-card.component';
-import { NomineeComponent } from './customer/nominee/nominee.component';
 import { CustomerModule } from './customer/customer.module';
 import { AdminModule } from './admin/admin.module';
 
@@ -31,11 +26,6 @@ import { AdminModule } from './admin/admin.module';
     HomeComponantComponent,
     AdminHomeComponent,
     CustomerComponent,
-    BeneficiaryComponent,
-    PolicyComponent,
-    TransactionComponent,
-    DebitCardComponent,
-    NomineeComponent
   ],
   imports: [
     BrowserModule,
