@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AccountResponseDTO } from 'src/app/DTO/account-response-dto';
+import { AccountStatusUpdate } from 'src/app/DTO/account-status-update';
 import { AdminService } from 'src/app/Service/admin.service';
 
 @Component({
@@ -11,18 +12,7 @@ import { AdminService } from 'src/app/Service/admin.service';
 export class ApproveAccountsComponent implements OnInit{
   allAccounts: AccountResponseDTO[] = [];
   __adminService: AdminService;
-  dto: AccountResponseDTO = new AccountResponseDTO(
-    0,
-    '',
-    '',
-    '',
-    0,
-    '',
-    0,
-    0,
-    '',
-    ''
-  );
+  status: AccountStatusUpdate = new AccountStatusUpdate('');
 
   constructor(
     __adminService: AdminService
@@ -45,19 +35,18 @@ export class ApproveAccountsComponent implements OnInit{
     );
   }
 
-  // createJsonForAccount(account: AccountResponseDTO): Observable<AccountResponseDTO>{
-  //     var jsonobj = {
-  //       accountId: account.accountId,
-  //       accountHolderName: account.accountHolderName,
-  //       phoneNo: account.phoneNo,
-  //       emailId: account.emailId,
-  //       age: account.age,
-  //       gender: account.gender,
-  //       balance: account.balance,
-  //       dateOfOpening: account.dateOfOpening,
-  //       accountStatus: account.accountStatus
-  //     }
-  //     return jsonobj;
-  // }
-  createJsonForAccount(account: AccountResponseDTO){}
+  createJsonForAccount(account: AccountResponseDTO){
+      this.status.accountStatus = "APPROVED";
+      this.__adminService.doApproveAccount(account.accountId, this.status).subscribe(
+        (data) => {
+          console.log(data);
+        },
+        (err) => {
+          console.log(err.err);
+        }
+      );
+      this.ngOnInit();
+  }
 }
+
+

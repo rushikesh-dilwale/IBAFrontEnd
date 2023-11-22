@@ -2,6 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AccountResponseDTO } from '../DTO/account-response-dto';
+import { AccountStatusUpdate } from '../DTO/account-status-update';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,9 @@ export class AdminService {
   getAllAccounts = this.contextPath + "admin/getallaccounts";
   getAccountById = this.contextPath + "normalUser/getAccountById?accountId=";
   getAccountsByStatus = this.contextPath + "admin/account/pending";
+  updateSavingAccount = this.contextPath + "admin/updateSavingsAccount/";
+  updateCurrentAccount = this.contextPath + "admin/updateCurrentAccount/";
+  updateAccountStatus = this.contextPath + "admin/account/status/"
 
   doSavingAccountRegistration(dto:AccountResponseDTO): Observable<AccountResponseDTO>{
     console.log('Inside Service of saving account register'+dto.accountHolderName);
@@ -66,6 +70,27 @@ export class AdminService {
   dogetAllAccountsByStatus(): Observable<AccountResponseDTO[]>{
     console.log("Inside Service of get Account By Account Status.");
     let outcome = this.api.get<AccountResponseDTO[]>(`${this.getAccountsByStatus}`);
+    return outcome;
+  }
+
+  doApproveSavingAccount(accountId: number, dto: AccountResponseDTO): Observable<AccountResponseDTO>{
+    console.log("Inside Service of Approve Saving Account.");
+    var endpoint = this.updateSavingAccount + accountId;
+    let outcome = this.api.put<AccountResponseDTO>(`${endpoint}`,dto);
+    return outcome;
+  }
+
+  doApproveCurrentAccount(accountId: number, dto: AccountResponseDTO): Observable<AccountResponseDTO>{
+    console.log("Inside Service of Approve Current Account.");
+    var endpoint = this.updateCurrentAccount + accountId;
+    let outcome = this.api.put<AccountResponseDTO>(`${endpoint}`,dto);
+    return outcome;
+  }
+
+  doApproveAccount(accountId: number, dto: AccountStatusUpdate): Observable<AccountResponseDTO>{
+    console.log("Inside Service of Approve Saving Account.");
+    var endpoint = this.updateAccountStatus + accountId;
+    let outcome = this.api.put<AccountResponseDTO>(`${endpoint}`,dto);
     return outcome;
   }
 }
