@@ -11,6 +11,10 @@ import { CreateNewAccountComponent } from './customer/create-new-account/create-
 import { MyAccountComponent } from './customer/my-account/my-account.component';
 import { GetallaccountsComponent } from './admin/getallaccounts/getallaccounts.component';
 import { GetaccountbyIdComponent } from './admin/getaccountby-id/getaccountby-id.component';
+import { AddNomineeComponent } from './customer/add-nominee/add-nominee.component';
+import { ViewNomineeComponent } from './customer/view-nominee/view-nominee.component';
+import { ViewNomineeIdComponent } from './customer/view-nominee-id/view-nominee-id.component';
+import { DepositAmountComponent } from './customer/deposit-amount/deposit-amount.component';
 
 const routes: Routes = [
   {
@@ -37,7 +41,12 @@ const routes: Routes = [
   { path: 'personal/account', component: MyAccountComponent },
   { path: 'admin/all/account', component: GetallaccountsComponent },
   { path: 'admin/id', component: GetaccountbyIdComponent },
-  { path: 'customer/home', component: CustomerComponent }
+  { path: 'customer/home', component: CustomerComponent },
+  {path:'customer/nominee',component:AddNomineeComponent},
+  {path:'normalUser/viewNominee',component:ViewNomineeComponent},
+  {path:'normalUser/viewNomineeById',component:ViewNomineeIdComponent},
+  {path:'customer/deposit1',component:DepositAmountComponent}
+  
 ];
 
 @NgModule({

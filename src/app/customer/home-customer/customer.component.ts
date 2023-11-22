@@ -43,11 +43,13 @@ export class CustomerComponent implements OnInit{
         this.__adminService.dogetRegisteredAccount(userId).subscribe(
           (data) => {
             this.dto = data;
+            localStorage.setItem('accountId',this.dto.accountId.toString());
           },
           (err) => {
             console.log(err.err);
             console.log(err.message);
           });
+          
       }
     }
 }

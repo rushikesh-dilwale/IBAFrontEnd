@@ -1,0 +1,47 @@
+<div style="display: flex;justify-content: space-evenly;">
+<div>
+    <form (ngSubmit)="addNominee()">
+        <table>
+        <tr>
+            <td>Name-</td>
+            <td> <input type="text" [(ngModel)]="dto.name" id="nomineeName"  name="nomineeName"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Government Id-</td>
+            <td> <input type="text" [(ngModel)]="dto.govtId" id="govtId"  name="govtId"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Government Id Type-</td>
+            <td> <input type="text" [(ngModel)]="dto.govtIdType" id="govtIdType"  name="govtIdType"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Phone Number-</td>
+            <td> <input type="text" [(ngModel)]="dto.phoneNo" id="phoneNumber"  name="phoneNumber"></td>
+            <td></td>
+        </tr>
+        <!-- <tr>
+            <td>Relation -</td>
+            <select [(ngModel)]="dto.relation" id="relation" value="relation">
+                <option value="MOTHER">MOTHER</option>
+                <option value="FATHER">FATHER</option>
+                <option value="DAUGHTER">DAUGHTER</option>
+                <option value="SON">SON</option>
+                <option value="SPOUSE">SPOUSE</option>
+            </select>
+            <td></td>
+        </tr> -->
+        <tr>
+            <td>Relation -</td>
+            <td><input type="text" [(ngModel)]="dto.relation" id="relation"  name="relation"></td>
+            <td></td>
+        </tr>
+        </table><br><br>
+
+        <input type="submit" class="btn btn-primary ms-2"  id="submit" value="submit">
+    </form>
+    
+</div>
+</div>

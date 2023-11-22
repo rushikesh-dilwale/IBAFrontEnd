@@ -1,0 +1,30 @@
+<h2>Nominees</h2>
+<table id = "accounts">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Government Id</th>
+            <th>Government Id Type</th>
+            <th>Contact Details</th>
+            <th>Relation</th>
+        </tr>
+    </thead>
+    <tbody id="accountBody">
+        <tr *ngFor="let n of allNominees">
+            <td>{{n.name}}</td>
+            <td>{{n.govtId}}</td>
+            <td>{{n.govtIdType}}</td>
+            <td>{{n.phoneNo}}</td>
+            <td>{{n.relation}}</td>
+            
+          </tr>
+    </tbody>
+</table>
+
+
+<!-- nomineeId:number,
+name:string,
+govtId:string,
+govtIdType:string,
+phoneNo:string,
+relation:string -->
