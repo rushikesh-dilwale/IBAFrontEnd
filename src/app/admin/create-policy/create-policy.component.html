@@ -1,0 +1,45 @@
+   <div style="display: flex;justify-content: space-evenly;">
+
+    <div>
+        <form (ngSubmit) = "onSubmit()">
+            <table>
+                <tr>
+                    <td>
+                        Create Policy 
+                    </td>
+                </tr>
+                <tr>
+                    <td>Policy Name - </td>
+                    <td>
+                        <input required="true"  type="text" [(ngModel)]="dto.policyName"   id="policyName" name="policyName"   #holderName="ngModel"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Policy Premium Amount - </td>
+                    <td>
+                        <input type="number" [(ngModel)]="dto.policyPremiumAmount" id="policyPremiumAmount" name="policyPremiumAmount"/>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Policy Sum Assured - </td>
+                    <td>
+                        <input type="number" [(ngModel)]="dto.policySumAssured" id="policySumAssured" name="policySumAssured"/>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Policy Expiry Date - </td>
+                    <td>
+                        <input type="date" [(ngModel)]="dto.policyExpiryDate" id="policyExpiryDate" name="policyExpiryDate"/>
+                    </td>
+                    <td></td>
+                </tr>
+                
+            </table>
+            
+            <input type="submit" class="btn btn-primary ms-2" value="Create Policy" />
+        </form>
+    </div>
+</div>
+
