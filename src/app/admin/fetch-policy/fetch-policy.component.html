@@ -1,0 +1,21 @@
+<h2>All Policies</h2>
+<table id = "policies">
+    <thead>
+        <tr>
+            <th>Policy Number</th>
+            <th>Policy Name</th>
+            <th>Premium Amount</th>
+            <th>Sum Assured</th>
+            <th>Expiry Date</th>
+        </tr>
+    </thead>
+    <tbody id="policy">
+        <tr *ngFor="let policy of allPolicies">
+            <td>{{ policy.policyNumber }}</td>
+            <td>{{ policy.policyName }}</td>
+            <td>{{ policy.policyPremiumAmount }}</td>
+            <td>{{ policy.policySumAssured }}</td>
+            <td>{{ policy.policyExpiryDate }}</td>
+          </tr>
+    </tbody>
+</table>

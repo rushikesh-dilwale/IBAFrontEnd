@@ -30,6 +30,8 @@ export class CustomerService {
   updateCurrentAccount = this.contextpath + "customer/updateCurrentAccount/";
   getAccountEndPoint = this.contextpath + 'normalUser/account/userId?userId=';
   getAccountById = this.contextpath + "normalUser/getAccountById?accountId=";
+  linkPolicy = this.contextpath+'customer/allocatePolicyToAccount';
+  checkExpiry = this.contextpath+'customer/policy/check-expiry';
 
   dogetRegisteredAccount(userId: number): Observable<AccountResponseDTO>{
     var endpoint = this.getAccountEndPoint + userId;
@@ -121,6 +123,18 @@ export class CustomerService {
     var endpoint = this.depositAmount + "?accountId=" + accountId + "&amount=" +amount;
     let result=this.api.put<TransactionDto>(`${endpoint}`,dto);
     return result;
+  }
+
+  allocatePolicy(polNum:number,accNum:number): Observable<AccountResponseDTO>{
+    var endpoint = this.linkPolicy+'?policyId='+polNum+'&accNum='+accNum
+    let outcome = this.api.put<AccountResponseDTO>(`${endpoint}`, null);
+    return outcome;
+  }
+
+  checkExpiryOfPolicy(policyNumber:number): Observable<any>{
+    var endpoint = this.checkExpiry+'?policyNumber='+policyNumber;
+    let outcome = this.api.get<any>(`${endpoint}`);
+    return outcome;
   }
 
 }
