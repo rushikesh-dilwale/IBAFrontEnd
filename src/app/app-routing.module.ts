@@ -15,6 +15,8 @@ import { AddNomineeComponent } from './customer/add-nominee/add-nominee.componen
 import { ViewNomineeComponent } from './customer/view-nominee/view-nominee.component';
 import { ViewNomineeIdComponent } from './customer/view-nominee-id/view-nominee-id.component';
 import { DepositAmountComponent } from './customer/deposit-amount/deposit-amount.component';
+import { ApproveAccountsComponent } from './admin/approve-accounts/approve-accounts.component';
+
 
 const routes: Routes = [
   {
@@ -42,11 +44,12 @@ const routes: Routes = [
   { path: 'admin/all/account', component: GetallaccountsComponent },
   { path: 'admin/id', component: GetaccountbyIdComponent },
   { path: 'customer/home', component: CustomerComponent },
-  {path:'customer/nominee',component:AddNomineeComponent},
-  {path:'normalUser/viewNominee',component:ViewNomineeComponent},
-  {path:'normalUser/viewNomineeById',component:ViewNomineeIdComponent},
-  {path:'customer/deposit1',component:DepositAmountComponent}
-  
+  { path: 'customer/nominee',component:AddNomineeComponent},
+  { path: 'normalUser/viewNominee',component:ViewNomineeComponent},
+  { path: 'normalUser/viewNomineeById',component:ViewNomineeIdComponent},
+  { path: 'customer/deposit1',component:DepositAmountComponent}
+  { path: 'admin/approve', component: ApproveAccountsComponent }
+
 ];
 
 @NgModule({

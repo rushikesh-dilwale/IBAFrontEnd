@@ -8,22 +8,8 @@ export class AccountResponseDTO {
     interestRate: number;
     balance:number;
     dateOfOpening:String;
+    accountStatus:string;
 
-/*
-	private long accountId;
-	private String accountHolderName;
-	private String phoneNo;
-	private String emailId;
-	private int age;
-	private Gender gender;
-	private double interestRate;
-	private double balance;
-	private LocalDate dateOfOpening;
-
-*/
-
-
-    
     constructor(
         accountId:number,
         accountHolderName:string,
@@ -33,7 +19,8 @@ export class AccountResponseDTO {
         gender:string,
         interestRate: number,
         balance:number,
-        dateOfOpening:String
+        dateOfOpening:String,
+        accountStatus:string
     ){
         this.accountId = accountId;
         this.accountHolderName = accountHolderName;
@@ -44,5 +31,6 @@ export class AccountResponseDTO {
         this.interestRate = interestRate;
         this.balance = balance;
         this.dateOfOpening = dateOfOpening;
+        this.accountStatus = accountStatus;
     }
 }

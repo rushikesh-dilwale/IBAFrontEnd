@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AccountResponseDTO } from 'src/app/DTO/account-response-dto';
 import { AdminService } from 'src/app/Service/admin.service';
-import { AccountBasicDTO } from 'src/app/DTO/account-basic-dto';
 
 @Component({
   selector: 'app-create-new-account',
@@ -9,7 +9,8 @@ import { AccountBasicDTO } from 'src/app/DTO/account-basic-dto';
   styleUrls: ['./create-new-account.component.css']
 })
 export class CreateNewAccountComponent {
-  dto: AccountBasicDTO = new AccountBasicDTO(
+
+  dto: AccountResponseDTO = new AccountResponseDTO(
     0,
     '',
     '',
@@ -18,8 +19,10 @@ export class CreateNewAccountComponent {
     '',
     0,
     0,
+    '',
     ''
   );
+  
   __adminService: AdminService;
   router: Router;
   constructor(__adminService: AdminService,router: Router){
@@ -79,4 +82,8 @@ export class CreateNewAccountComponent {
       )
     }
   }
+
+  // onChange(
+  //   this.dto.gender
+  // ){}
 }

@@ -1,8 +1,51 @@
-<label for="accid">Enter Account Number</label>
+<div class="card">
+    <div class="card-body d-flex align-items-center">
+        <label for="accid" class="me-20">Enter Account Number</label>
+        <input type="number" [(ngModel)]="accId" id="accid" name="accid" class="form-control me-50"/>
+        <button class="btn btn-primary" (click)="doLoad(accId)">Search AccountID</button>
+    </div>
+</div>
+ 
+<div class="card mt-4 mx-auto" *ngIf="account" style="max-width: 600px;">
+    <div class="card-header">
+        <h2 class="card-title">Account Details of Account Number - {{ accId }}</h2>
+    </div>
+    <div class="card-body p-4">
+        <div class="row">
+            <div class="col-md-6">
+                <p class="card-text">Account ID:</p>
+                <p class="card-text">Account Holder Name:</p>
+                <p class="card-text">Account Holder Age:</p>
+                <p class="card-text">Account Balance:</p>
+                <p class="card-text">Account Holder Email:</p>
+                <p class="card-text">Account Holder Gender:</p>
+                <p class="card-text">Interest Rate:</p>
+                <p class="card-text">Phone Number:</p>
+                <p class="card-text">Account Opening Date:</p>
+                <p class="card-text">Account Status:</p>
+            </div>
+            <div class="col-md-6">
+                <p class="card-text">{{ account.accountId }}</p>
+                <p class="card-text">{{ account.accountHolderName }}</p>
+                <p class="card-text">{{ account.age }}</p>
+                <p class="card-text">{{ account.balance }}</p>
+                <p class="card-text">{{ account.emailId }}</p>
+                <p class="card-text">{{ account.gender }}</p>
+                <p class="card-text">{{ account.interestRate }}</p>
+                <p class="card-text">{{ account.phoneNo }}</p>
+                <p class="card-text">{{ account.dateOfOpening }}</p>
+                <p class="card-text">{{ account.accountStatus }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <label for="accid">Enter Account Number</label>
 <input type="number" [(ngModel)]="accId" id="accid" name="accid"/><br>
 <button class="btn btn-primary ms-2" (click)="doLoad(accId)">Show Account By Account Id</button>
 <div>
     <h2>Account Details of Account Number - {{ accId }}</h2>
+    <br><br>
     <p>Account ID: {{ account.accountId }}</p>
     <p>Account Holder Name: {{ account.accountHolderName }}</p>
     <p>Account Holder Age: {{ account.age }}</p>
@@ -12,4 +55,5 @@
     <p>Interest Rate: {{ account.interestRate }}</p>
     <p>Phone Number: {{ account.phoneNo }}</p>
     <p>Account Opening Date: {{ account.dateOfOpening }}</p>
-</div>
+    <p>Account Status: {{ account.accountStatus }}</p>
+</div> -->
