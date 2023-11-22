@@ -47,7 +47,7 @@ const routes: Routes = [
   { path: 'customer/nominee',component:AddNomineeComponent},
   { path: 'normalUser/viewNominee',component:ViewNomineeComponent},
   { path: 'normalUser/viewNomineeById',component:ViewNomineeIdComponent},
-  { path: 'customer/deposit1',component:DepositAmountComponent}
+  { path: 'customer/deposit1',component:DepositAmountComponent},
   { path: 'admin/approve', component: ApproveAccountsComponent }
 
 ];

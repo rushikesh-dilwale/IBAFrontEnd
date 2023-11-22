@@ -15,8 +15,6 @@ import { CustomerComponent } from './customer/home-customer/customer.component';
 import { CustomerModule } from './customer/customer.module';
 import { AdminModule } from './admin/admin.module';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
