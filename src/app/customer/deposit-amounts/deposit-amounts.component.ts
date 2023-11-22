@@ -4,13 +4,12 @@ import { TransactionDto } from 'src/app/DTO/transaction-dto';
 import { CustomerService } from 'src/app/Service/customer.service';
 
 @Component({
-  selector: 'app-deposit-amount',
-  templateUrl: './deposit-amount.component.html',
-  styleUrls: ['./deposit-amount.component.css']
+  selector: 'app-deposit-amounts',
+  templateUrl: './deposit-amounts.component.html',
+  styleUrls: ['./deposit-amounts.component.css']
 })
-export class DepositAmountComponent {
-
-  depositDto:DepositDTO=new DepositDTO(
+export class DepositAmountsComponent {
+  depositDto:DepositDTO = new DepositDTO(
     '',
     '');
 

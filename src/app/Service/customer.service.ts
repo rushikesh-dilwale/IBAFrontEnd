@@ -39,7 +39,7 @@ export class CustomerService {
 
   getAllNominees(accId:Number):Observable<NomineeDTO[]>{
     var endpoint=this.getAllNomineesOfAccount+"?accountId="+accId;
-    let result=this.api.get<any>(`${endpoint}`);
+    let result=this.api.get<NomineeDTO[]>(`${endpoint}`);
     return result;
   }
 
