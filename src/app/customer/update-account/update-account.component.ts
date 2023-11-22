@@ -4,11 +4,11 @@ import { AccountResponseDTO } from 'src/app/DTO/account-response-dto';
 import { AdminService } from 'src/app/Service/admin.service';
 
 @Component({
-  selector: 'app-create-new-account',
-  templateUrl: './create-new-account.component.html',
-  styleUrls: ['./create-new-account.component.css']
+  selector: 'app-update-account',
+  templateUrl: './update-account.component.html',
+  styleUrls: ['./update-account.component.css']
 })
-export class CreateNewAccountComponent {
+export class UpdateAccountComponent {
 
   dto: AccountResponseDTO = new AccountResponseDTO(
     0,
@@ -32,6 +32,7 @@ export class CreateNewAccountComponent {
 
   doSubmit(accType:string){
     console.log(this.dto+' - account type '+accType);
+    
     if(accType == "saving"){
       this.__adminService.doSavingAccountRegistration(this.dto).subscribe(
         (data) => {
@@ -82,4 +83,5 @@ export class CreateNewAccountComponent {
       )
     }
   }
+
 }
