@@ -14,8 +14,8 @@ import { GetaccountbyIdComponent } from './admin/getaccountby-id/getaccountby-id
 import { AddNomineeComponent } from './customer/add-nominee/add-nominee.component';
 import { ViewNomineeComponent } from './customer/view-nominee/view-nominee.component';
 import { ViewNomineeIdComponent } from './customer/view-nominee-id/view-nominee-id.component';
-import { DepositAmountComponent } from './customer/deposit-amount/deposit-amount.component';
 import { ApproveAccountsComponent } from './admin/approve-accounts/approve-accounts.component';
+import { DepositAmountsComponent } from './customer/deposit-amounts/deposit-amounts.component';
 
 
 const routes: Routes = [
@@ -47,7 +47,7 @@ const routes: Routes = [
   { path: 'customer/nominee',component:AddNomineeComponent},
   { path: 'normalUser/viewNominee',component:ViewNomineeComponent},
   { path: 'normalUser/viewNomineeById',component:ViewNomineeIdComponent},
-  { path: 'customer/deposit1',component:DepositAmountComponent},
+  { path: 'customer/deposit1',component:DepositAmountsComponent},
   { path: 'admin/approve', component: ApproveAccountsComponent }
 
 ];

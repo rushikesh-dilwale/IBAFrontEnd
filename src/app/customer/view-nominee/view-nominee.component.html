@@ -10,21 +10,12 @@
         </tr>
     </thead>
     <tbody id="accountBody">
-        <tr *ngFor="let n of allNominees">
-            <td>{{n.name}}</td>
-            <td>{{n.govtId}}</td>
-            <td>{{n.govtIdType}}</td>
-            <td>{{n.phoneNo}}</td>
-            <td>{{n.relation}}</td>
-            
+        <tr *ngFor="let nominee of allNominees">
+            <td>{{nominee.name}}</td>
+            <td>{{nominee.govtId}}</td>
+            <td>{{nominee.govtIdType}}</td>
+            <td>{{nominee.phoneNo}}</td>
+            <td>{{nominee.relation}}</td> 
           </tr>
     </tbody>
 </table>
-
-
-<!-- nomineeId:number,
-name:string,
-govtId:string,
-govtIdType:string,
-phoneNo:string,
-relation:string -->
