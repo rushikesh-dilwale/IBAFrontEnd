@@ -1,4 +1,4 @@
-<div>
+<!-- <div>
     <h2>Account Details</h2>
     <p>Account ID: {{ dto.accountId }}</p>
     <p>Account Holder Name: {{ dto.accountHolderName }}</p>
@@ -10,7 +10,38 @@
     <p>Phone Number: {{ dto.phoneNo }}</p>
     <p>Account Opening Date: {{ dto.dateOfOpening }}</p>
     <p>Account status: {{ dto.accountStatus }}</p>
-</div>
+</div> -->
   
-<!-- <button class="btn btn-primary ms-2" (click)="doShowMyAccount()">Show My Account</button>
-   -->
+<div class="card mt-4 mx-auto" *ngIf="dto" style="max-width: 600px;">
+    <div class="card-header">
+        <h2 class="font-weight-bold text-info text-center card-title">Account Details</h2>
+    </div>
+    <div class="card-body p-4">
+        <div class="row">
+            <div class="col-md-6">
+                <p class="card-text">Account ID:</p>
+                <p class="card-text">Account Holder Name:</p>
+                <p class="card-text">Account Holder Age:</p>
+                <p class="card-text">Account Balance:</p>
+                <p class="card-text">Account Holder Email:</p>
+                <p class="card-text">Account Holder Gender:</p>
+                <p class="card-text">Interest Rate:</p>
+                <p class="card-text">Phone Number:</p>
+                <p class="card-text">Account Opening Date:</p>
+                <p class="card-text">Account Status:</p>
+            </div>
+            <div class="col-md-6">
+                <p class="card-text">{{ dto.accountId }}</p>
+                <p class="card-text">{{ dto.accountHolderName }}</p>
+                <p class="card-text">{{ dto.age }}</p>
+                <p class="card-text">{{ dto.balance | currency: 'INR' }}</p>
+                <p class="card-text">{{ dto.emailId }}</p>
+                <p class="card-text">{{ dto.gender }}</p>
+                <p class="card-text">{{ dto.interestRate | percent }}</p>
+                <p class="card-text">{{ dto.phoneNo }}</p>
+                <p class="card-text">{{ dto.dateOfOpening }}</p>
+                <p class="card-text">{{ dto.accountStatus }}</p>
+            </div>
+        </div>
+    </div>
+</div>

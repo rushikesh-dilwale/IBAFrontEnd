@@ -28,10 +28,10 @@
                 <p class="card-text">{{ account.accountId }}</p>
                 <p class="card-text">{{ account.accountHolderName }}</p>
                 <p class="card-text">{{ account.age }}</p>
-                <p class="card-text">{{ account.balance }}</p>
+                <p class="card-text">{{ account.balance | currency: 'INR'}}</p>
                 <p class="card-text">{{ account.emailId }}</p>
                 <p class="card-text">{{ account.gender }}</p>
-                <p class="card-text">{{ account.interestRate }}</p>
+                <p class="card-text">{{ account.interestRate | percent }}</p>
                 <p class="card-text">{{ account.phoneNo }}</p>
                 <p class="card-text">{{ account.dateOfOpening }}</p>
                 <p class="card-text">{{ account.accountStatus }}</p>
@@ -39,21 +39,3 @@
         </div>
     </div>
 </div>
-
-<!-- <label for="accid">Enter Account Number</label>
-<input type="number" [(ngModel)]="accId" id="accid" name="accid"/><br>
-<button class="btn btn-primary ms-2" (click)="doLoad(accId)">Show Account By Account Id</button>
-<div>
-    <h2>Account Details of Account Number - {{ accId }}</h2>
-    <br><br>
-    <p>Account ID: {{ account.accountId }}</p>
-    <p>Account Holder Name: {{ account.accountHolderName }}</p>
-    <p>Account Holder Age: {{ account.age }}</p>
-    <p>Account Balance: {{ account.balance }}</p>
-    <p>Account Holder Email: {{ account.emailId }}</p>
-    <p>Account Holder Gender: {{ account.gender }}</p>
-    <p>Interest Rate: {{ account.interestRate }}</p>
-    <p>Phone Number: {{ account.phoneNo }}</p>
-    <p>Account Opening Date: {{ account.dateOfOpening }}</p>
-    <p>Account Status: {{ account.accountStatus }}</p>
-</div> -->
