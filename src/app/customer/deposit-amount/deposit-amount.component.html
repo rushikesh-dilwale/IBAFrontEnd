@@ -1,0 +1,18 @@
+<div>
+    <form (ngSubmit)="doDeposit(amount.value)">
+        
+        <label>Transaction Amount</label>
+        <input type ="number" #amount><br><br>
+      
+
+      
+        <label>Transaction Status</label>
+        <input type="text" [(ngModel)]="depositDto.transactionStatus" id="transactionStatus" name="transactionStatus"><br><br>
+        <label>Transaction Remark</label>
+        <input type="text" [(ngModel)]="depositDto.transactionRemarks" id="transactionRemarks" name="transactionRemarks" ><br><br>
+       
+        <input type="submit" class="btn btn-primary ms-2" value="Deposit" ><br><br>
+        
+    </form>
+    <button style="margin-left: 30;" class="btn btn-primary ms-2" (click)="withdraw()">Withdraw</button>
+</div>
