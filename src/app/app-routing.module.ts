@@ -11,6 +11,7 @@ import { CreateNewAccountComponent } from './customer/create-new-account/create-
 import { MyAccountComponent } from './customer/my-account/my-account.component';
 import { GetallaccountsComponent } from './admin/getallaccounts/getallaccounts.component';
 import { GetaccountbyIdComponent } from './admin/getaccountby-id/getaccountby-id.component';
+import { ApproveAccountsComponent } from './admin/approve-accounts/approve-accounts.component';
 
 const routes: Routes = [
   {
@@ -37,7 +38,8 @@ const routes: Routes = [
   { path: 'personal/account', component: MyAccountComponent },
   { path: 'admin/all/account', component: GetallaccountsComponent },
   { path: 'admin/id', component: GetaccountbyIdComponent },
-  { path: 'customer/home', component: CustomerComponent }
+  { path: 'customer/home', component: CustomerComponent },
+  { path: 'admin/approve', component: ApproveAccountsComponent }
 ];
 
 @NgModule({

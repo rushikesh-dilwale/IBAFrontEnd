@@ -1,7 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { AccountBasicDTO } from '../DTO/account-basic-dto';
 import { AccountResponseDTO } from '../DTO/account-response-dto';
 
 @Injectable({
@@ -18,18 +17,19 @@ export class AdminService {
   linkAccount = this.contextPath + "admin/usertoaccount";
   getAllAccounts = this.contextPath + "admin/getallaccounts";
   getAccountById = this.contextPath + "normalUser/getAccountById?accountId=";
+  getAccountsByStatus = this.contextPath + "admin/account/pending";
 
-  doSavingAccountRegistration(dto:AccountBasicDTO): Observable<AccountBasicDTO>{
+  doSavingAccountRegistration(dto:AccountResponseDTO): Observable<AccountResponseDTO>{
     console.log('Inside Service of saving account register'+dto.accountHolderName);
-    let outcome = this.api.post<AccountBasicDTO>(
+    let outcome = this.api.post<AccountResponseDTO>(
       `${this.addSavingAccountEndPoint}`, dto
     );
     return outcome;
   }
 
-  doCurrentAccountRegistration(dto:AccountBasicDTO): Observable<AccountBasicDTO>{
+  doCurrentAccountRegistration(dto:AccountResponseDTO): Observable<AccountResponseDTO>{
     console.log('Inside Service of current account register'+dto.accountHolderName);
-    let outcome = this.api.post<AccountBasicDTO>(
+    let outcome = this.api.post<AccountResponseDTO>(
       `${this.addCurrentAccountEndPoint}`, dto
     );
     return outcome;
@@ -42,11 +42,11 @@ export class AdminService {
     return outcome;
   }
 
-  doAccountLinkWithid(accountid:number,userId:number): Observable<AccountBasicDTO>
+  doAccountLinkWithid(accountid:number,userId:number): Observable<AccountResponseDTO>
   {
     var endpoint = this.linkAccount + "?accNum="+accountid+"&userId="+userId;
     console.log('Inside Service of do account link with user.');
-    let outcome = this.api.put<AccountBasicDTO>(`${endpoint}`,[]);
+    let outcome = this.api.put<AccountResponseDTO>(`${endpoint}`,[]);
     return outcome;
   }
 
@@ -60,6 +60,12 @@ export class AdminService {
     console.log("Inside Service of Get Account By Account Id.");
     var endpoint = this.getAccountById + accountId;
     let outcome = this.api.get<AccountResponseDTO>(`${endpoint}`);
+    return outcome;
+  }
+
+  dogetAllAccountsByStatus(): Observable<AccountResponseDTO[]>{
+    console.log("Inside Service of get Account By Account Status.");
+    let outcome = this.api.get<AccountResponseDTO[]>(`${this.getAccountsByStatus}`);
     return outcome;
   }
 }

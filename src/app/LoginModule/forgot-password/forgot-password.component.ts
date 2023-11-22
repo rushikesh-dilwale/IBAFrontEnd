@@ -18,7 +18,11 @@ export class ForgotPasswordComponent {
 
   resetPass(email: string) {
     alert('Entered inside the restpass');
+    
     this.loginDto.userName = email;
+    this.loginDto.role="CUSTOMER";
+    console.log(this.loginDto);
+    
     this.__loginService.doVerifyUser(this.loginDto).subscribe(
       (data) => {
         console.log('Do verified user successfullty ');
@@ -28,6 +32,7 @@ export class ForgotPasswordComponent {
           if (data) {
             console.log('inside  for do user if');
             this.mailDto.recipient = email;
+            console.log(this.mailDto);
             this.__loginService.doSendEmail(this.mailDto).subscribe(
               (data) => {
                 console.log('sended successfully');

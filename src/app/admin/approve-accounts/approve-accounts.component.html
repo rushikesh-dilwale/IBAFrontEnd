@@ -1,5 +1,5 @@
 <div class="container">
-    <h2 class="text-center">All Accounts</h2>
+    <h2 class="text-center">Approval Pending Accounts</h2>
     <table id="accounts" class="table table-striped table-bordered">
       <thead class="thead-light">
         <tr>
@@ -12,6 +12,7 @@
           <th>Balance</th>
           <th>Date of Opening</th>
           <th>Account Status</th>
+          <th>Approve</th>
         </tr>
       </thead>
       <tbody id="accountBody">
@@ -25,8 +26,8 @@
           <td>{{ account.balance }}</td>
           <td>{{ account.dateOfOpening }}</td>
           <td>{{ account.accountStatus }}</td>
+          <td><button class="btn btn-primary" (click)="createJsonForAccount(account)">Approve</button></td>
         </tr>
       </tbody>
     </table>
   </div>
-  
