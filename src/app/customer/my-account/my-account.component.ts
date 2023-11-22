@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AdminService } from 'src/app/Service/admin.service';
 import { AccountResponseDTO } from 'src/app/DTO/account-response-dto';
+import { CustomerService } from 'src/app/Service/customer.service';
 
 @Component({
   selector: 'app-my-account',
@@ -27,14 +27,14 @@ export class MyAccountComponent implements OnInit{
       ''
     );
 
-    __adminService: AdminService;
+    __customerService: CustomerService;
     router: Router;
 
     constructor(
-      ___adminService: AdminService,
+      __customerService: CustomerService,
       router: Router
     ){
-      this.__adminService = ___adminService;
+      this.__customerService = __customerService;
       this.router = router;
     }
 
@@ -43,7 +43,7 @@ export class MyAccountComponent implements OnInit{
       console.log(id);
       if (id !== null) {
         let userId = parseInt(id);
-        this.__adminService.dogetRegisteredAccount(userId).subscribe(
+        this.__customerService.dogetRegisteredAccount(userId).subscribe(
           (data) => {
             console.log("inside data "+data);
             this.dto = data;

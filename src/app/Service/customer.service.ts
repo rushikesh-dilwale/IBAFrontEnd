@@ -5,6 +5,7 @@ import { NomineeDTO } from '../DTO/nominee-dto';
 import { Router } from '@angular/router';
 import { TransactionDto } from '../DTO/transaction-dto';
 import { DepositDTO } from '../DTO/deposit-dto';
+import { AccountResponseDTO } from '../DTO/account-response-dto';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,66 @@ export class CustomerService {
   deleteNomineeById=this.contextpath+'customer/deleteNomineeById'
   depositAmount=this.contextpath+'customer/deposit'
   withdrawAmount=this.contextpath+'customer/withdraw'
+
+  addSavingAccountEndPoint = this.contextpath + 'customer/saveSavingsAccountDto';
+  addCurrentAccountEndPoint = this.contextpath + 'customer/saveCurrentAcoountDto';
+  linkAccount = this.contextpath + "customer/usertoaccount";
+  updateSavingAccount = this.contextpath + "customer/updateSavingsAccount/";
+  updateCurrentAccount = this.contextpath + "customer/updateCurrentAccount/";
+  getAccountEndPoint = this.contextpath + 'normalUser/account/userId?userId=';
+  getAccountById = this.contextpath + "normalUser/getAccountById?accountId=";
+
+  dogetRegisteredAccount(userId: number): Observable<AccountResponseDTO>{
+    var endpoint = this.getAccountEndPoint + userId;
+    console.log('Inside Service Get account By UserId Service '+this.getAccountEndPoint);
+    let outcome = this.api.get<AccountResponseDTO>(`${endpoint}`);
+    return outcome;
+  }
+
+  dogetAccountById(accountId: number): Observable<AccountResponseDTO>{
+    console.log("Inside Service of Get Account By Account Id.");
+    var endpoint = this.getAccountById + accountId;
+    let outcome = this.api.get<AccountResponseDTO>(`${endpoint}`);
+    return outcome;
+  }
+
+  doSavingAccountRegistration(dto:AccountResponseDTO): Observable<AccountResponseDTO>{
+    console.log('Inside Service of saving account register'+dto.accountHolderName);
+    let outcome = this.api.post<AccountResponseDTO>(
+      `${this.addSavingAccountEndPoint}`, dto
+    );
+    return outcome;
+  }
+
+  doCurrentAccountRegistration(dto:AccountResponseDTO): Observable<AccountResponseDTO>{
+    console.log('Inside Service of current account register'+dto.accountHolderName);
+    let outcome = this.api.post<AccountResponseDTO>(
+      `${this.addCurrentAccountEndPoint}`, dto
+    );
+    return outcome;
+  }
+
+  doAccountLinkWithid(accountid:number,userId:number): Observable<AccountResponseDTO>
+  {
+    var endpoint = this.linkAccount + "?accNum="+accountid+"&userId="+userId;
+    console.log('Inside Service of do account link with user.');
+    let outcome = this.api.put<AccountResponseDTO>(`${endpoint}`,[]);
+    return outcome;
+  }
+
+  doUpdateSavingAccount(accountId: number, dto: AccountResponseDTO): Observable<AccountResponseDTO>{
+    console.log("Inside Service of Approve Saving Account.");
+    var endpoint = this.updateSavingAccount + accountId;
+    let outcome = this.api.put<AccountResponseDTO>(`${endpoint}`,dto);
+    return outcome;
+  }
+
+  doUpdateCurrentAccount(accountId: number, dto: AccountResponseDTO): Observable<AccountResponseDTO>{
+    console.log("Inside Service of Approve Current Account.");
+    var endpoint = this.updateCurrentAccount + accountId;
+    let outcome = this.api.put<AccountResponseDTO>(`${endpoint}`,dto);
+    return outcome;
+  }
 
   addNewNominee(dto:NomineeDTO):Observable<NomineeDTO>{
     let result=this.api.post<NomineeDTO>(

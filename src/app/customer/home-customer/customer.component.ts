@@ -1,7 +1,6 @@
 import { Component, NgModule, OnInit } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { AdminService } from 'src/app/Service/admin.service';
 import { AccountResponseDTO } from 'src/app/DTO/account-response-dto';
+import { CustomerService } from 'src/app/Service/customer.service';
 
 @Component({
   selector: 'app-customer',
@@ -23,12 +22,12 @@ export class CustomerComponent implements OnInit{
       '',
       ''
     );
-    __adminService: AdminService;
+    __customerService: CustomerService;
 
     constructor(
-      ___adminService: AdminService
+      __customerService: CustomerService
     ){
-      this.__adminService = ___adminService;
+      this.__customerService = __customerService;
     }
 
     ngOnInit() {
@@ -41,7 +40,7 @@ export class CustomerComponent implements OnInit{
 
       if (id !== null) {
         let userId = parseInt(id);
-        this.__adminService.dogetRegisteredAccount(userId).subscribe(
+        this.__customerService.dogetRegisteredAccount(userId).subscribe(
           (data) => {
             this.dto = data;
             localStorage.setItem('accountId', this.dto.accountId.toString());
