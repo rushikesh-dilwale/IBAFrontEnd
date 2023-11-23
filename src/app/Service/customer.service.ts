@@ -26,6 +26,8 @@ export class CustomerService {
   deleteNomineeById=this.contextpath+'customer/deleteNomineeById'
   depositAmount=this.contextpath+'customer/deposit'
   withdrawAmount=this.contextpath+'customer/withdraw'
+  trasnactionBetweenTwoDate=this.contextpath+'normalUser/listAllTransactions'
+  transferMoney=this.contextpath+'customer/transferMoney'
 
   addSavingAccountEndPoint = this.contextpath + 'customer/saveSavingsAccountDto';
   addCurrentAccountEndPoint = this.contextpath + 'customer/saveCurrentAcoountDto';
@@ -120,16 +122,35 @@ export class CustomerService {
     return result;
   }
 
-  deleteNominee(nomineeId:number):Observable<string>{
+  deleteNominee(nomineeId:number):Observable<any>{
     var endpoint=this.deleteNomineeById+"/"+nomineeId;
-    let result=this.api.delete<string>(`${endpoint}`);
+    let result=this.api.delete<any>(`${endpoint}`);
     return result
   }
 
   deposit(accountId:number,amount:number,dto:DepositDTO):Observable<TransactionDto>{
-    // http://localhost:5005/customer/deposit?accountId=45&amount=1000
+   
     var endpoint = this.depositAmount + "?accountId=" + accountId + "&amount=" +amount;
     let result=this.api.put<TransactionDto>(`${endpoint}`,dto);
+    return result;
+  }
+
+  withDraw(accountId:number,amount:number,dto:DepositDTO):Observable<any>{
+    var endpoint = this.withdrawAmount + "?accountId=" + accountId + "&amount=" +amount;
+    let result=this.api.put<any>(`${endpoint}`,dto);
+    return result;
+  }
+
+  listAllTrasnaction(accountId:number,from:string,to:string):Observable<TransactionDto[]>{
+    var endpoint=this.trasnactionBetweenTwoDate+"?accountId="+accountId+"&from="+from+"&to="+to;
+    let result=this.api.get<TransactionDto[]>(`${endpoint}`);
+    return result;
+  }
+  //localhost:5005/customer/transferMoney?amount=100&password=1234&receiverAccountId=22&senderAccounId=11&userId=10
+
+  transferMoneyToAccount(senderAccounId:number,receiverAccountId:number,amount:number,userId:number,password:string):Observable<any>{
+    var endpoint=this.transferMoney+"?amount="+amount+"&password="+password+"&receiverAccountId="+receiverAccountId+"&senderAccounId="+senderAccounId+"&userId="+userId;
+    let result=this.api.put<any>(`${endpoint}`,[]);
     return result;
   }
   

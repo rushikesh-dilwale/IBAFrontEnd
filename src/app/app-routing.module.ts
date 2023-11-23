@@ -32,6 +32,8 @@ import { FetchPolicyComponent } from './admin/fetch-policy/fetch-policy.componen
 import { FetchCustPolicyComponent } from './customer/fetch-cust-policy/fetch-cust-policy.component';
 import { CreatePolicyComponent } from './admin/create-policy/create-policy.component';
 import { UpdatePolicyComponent } from './admin/update-policy/update-policy.component';
+import { TransferMoneyComponent } from './customer/transfer-money/transfer-money.component';
+import { TransactionBetweenComponent } from './customer/transaction-between/transaction-between.component';
 
 const routes: Routes = [
   { path: "login", component:LoginPageComponent },
@@ -67,12 +69,14 @@ const routes: Routes = [
   { path: 'link-policy', component: LinkPolicyComponent},
   { path: 'fetch-cust-policy', component:FetchCustPolicyComponent},
    
-  { path: 'customer/nominee',component: AddNomineeComponent},
-  { path: 'normalUser/viewNominee',component: ViewNomineeComponent},
-  { path: 'normalUser/viewNomineeById',component: ViewNomineeIdComponent},
-
-  { path: 'customer/deposit1',component: DepositAmountsComponent},
-  { path: 'admin/approve', component: ApproveAccountsComponent }
+  
+  { path: 'customer/nominee',component:AddNomineeComponent},
+  { path: 'normalUser/viewNominee',component:ViewNomineeComponent},
+  { path: 'normalUser/viewNomineeById',component:ViewNomineeIdComponent},
+  { path: 'customer/deposit1',component:DepositAmountsComponent},
+  { path: 'admin/approve', component: ApproveAccountsComponent },
+  { path: 'normalUser/listAllTransaction',component:TransactionBetweenComponent},
+  { path: 'customer/transferMoney',component:TransferMoneyComponent},
   
 ];
 

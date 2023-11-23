@@ -26,6 +26,7 @@ export class ViewNomineeIdComponent {
     doLoad(nomineeId:number){
       this.__customerService.getNomineeById(nomineeId).subscribe((data)=>{
         this.nominee=data;
+        
       },
       (err)=>{
         console.log(err.err);
@@ -34,28 +35,13 @@ export class ViewNomineeIdComponent {
       );
     }
 
-
-
-    deleteByID_Ashish(nId:number){
-      console.log("inside delete");
-      this.__customerService.deleteNominee(nId).subscribe(
-      (data)=> {
-        this.deletemsg = data;
-        alert('The requested nominee with ID Number'+nId+"is Deleted")
-      },(err)=>{
-        console.log(err.err);
-        console.log(err.message);
-      }
-      );
-    }
-
-
     deleteByID(nId:number){
       console.log("inside delete");
       this.__customerService.deleteNominee(nId).subscribe(
       (data)=> {
-        this.deletemsg = data;
-        console.log('deleted');
+        this.deletemsg = data.str;
+       alert(this.deletemsg);
+       this.nominee=new NomineeDTO(0,"","","","","");
       },(err)=>{
         console.log(err.err);
         console.log(err.message);

@@ -13,7 +13,7 @@
         <tr *ngFor="let nominee of allNominees">
             <td>{{nominee.name}}</td>
             <td>{{nominee.govtId}}</td>
-            <td>{{nominee.govtIdType}}</td>
+            <td>{{nominee.govtIdType | uppercase}}</td>
             <td>{{nominee.phoneNo}}</td>
             <td>{{nominee.relation}}</td> 
           </tr>

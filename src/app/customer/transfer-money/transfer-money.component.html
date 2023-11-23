@@ -1,0 +1,21 @@
+<div>
+    <h2>Transfer Amount To The Beneficiary Account</h2>
+    <form #transferForm="ngForm" (ngSubmit)="transfer()">
+    <label >Amount:-</label>
+    <input required="true" type="number" id="amount "  name="amount" [(ngModel)]="amount" #am="ngModel" min="1" >
+    <div *ngIf="am.invalid==true && am.pristine==false && am.touched==true " style="color: red;">Please Enter Valid Amount</div>
+    <br><br>
+    <label >Receiver AccountId:-</label>
+    <input required="true" type="number" id="receiver" name="receiver" [(ngModel)]="receiverAccountId" #rece="ngModel" min="1">
+    <div *ngIf="rece.invalid==true && rece.pristine==false && rece.touched==true " style="color: red;">Please Enter Valid Account Number</div>
+
+    <br><br>
+    <label >Password:-</label>
+    <input required="true" type="password" id="pass" name="pass" [(ngModel)]="password" #pas="ngModel" minlength="3">
+    <div *ngIf="pas.invalid==true && pas.pristine==false && pas.touched==true " style="color: red;">Please Enter Correct Password</div>
+
+    <button type="submit" [disabled]="transferForm.invalid">Transfer</button>
+    </form>
+
+   
+</div>

@@ -1,11 +1,13 @@
 
 <div >
-<label for="nomineeId">Enter Account Id</label>
-<input type="number" [(ngModel)]="nomineeId" id="nomineeId" name="nomineeId"/><br>
+<label for="nomineeId">Enter Nominee Id</label>
+<input type="number" [(ngModel)]="nomineeId" id="nomineeId" name="nomineeId" #nomId="ngModel" min="1"/>
+<div *ngIf="nomId.invalid==true" style="color: red;">Provide Correct Nominee Id</div>
+<br>
 <button class="btn btn-primary ms-2" (click)="doLoad(nomineeId)">Show Nominee By Nominee Id</button>
-<button  style="margin-left: 20px;" class="btn btn-primary ms-2" (click)="deleteByID_Ashish(nomineeId)">Delete Nominee_Ashish</button>
+<button  style="margin-left: 20px;" class="btn btn-primary ms-2" (click)="deleteByID(nomineeId)">Delete Nominee </button>
 <div>
-    <h2>Enter Nominee Id - {{ nomineeId }}</h2>
+    <h2 style="color: green;">Enter Nominee Id - {{ nomineeId }}</h2>
     <p>Nominee Id: {{nominee.nomineeId }}</p>
     <p>Nominee Name: {{ nominee.name }}</p>
     <p>Government Id Number: {{nominee.govtId}}</p>
