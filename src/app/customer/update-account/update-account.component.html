@@ -1,8 +1,8 @@
 <div style="display: flex;justify-content: space-evenly;">
-
+ 
     <div class="card">
         <div class="card-body">
-        <form (ngSubmit) = "doSubmitForm(accType.value)" #form="ngForm">
+        <form #registerForm="ngForm" (ngSubmit) = "doSubmitForm(accType.value)" >
             <div class="container mt-2">
                 <h3 class="font-weight-bold text-info text-center">Update Account Form</h3><br>
             </div>
@@ -14,36 +14,34 @@
                             <option selected="false">Select Account Type</option>
                             <option value="saving">Saving</option>
                             <option value="current">Current</option>
-                        </select> 
+                        </select>
                     </td>
                 </tr>
                 <tr>
                     <td>Account Holder Name - </td>
                     <td>
-                        <input required="true"  type="text" [(ngModel)]="dto.accountHolderName" id="accname" name="accname" #holderName="ngModel"/>
-                        <div *ngIf="holderName.invalid == true && holderName.pristine == false && holderName.touched==true" 
-                                    style="color:red;font-style: italic;font-size: small;">
-                            Account Holder Name cannot be Empty
+                        <input required="true"  type="text" [(ngModel)]="dto.accountHolderName" id="accname" name="accname" #holderName="ngModel" pattern="[a-zA-Z]+"/>
+                        <div *ngIf="holderName.invalid == true && holderName.pristine == false && holderName.touched==true"  style="color:red;">
+                            Enter Correct Name
                         </div>
                     </td>
                 </tr>
                 <tr>
                     <td>Phone Number - </td>
                     <td>
-                        <input type="text" [(ngModel)]="dto.phoneNo" id="phone" name="PHONE" #phone="ngModel"/>
-                        <div *ngIf="phone.invalid == true && phone.pristine == false && phone.touched==true" 
-                                    style="color:red;font-style: italic;font-size: small;">
-                            Phone Number cannot be Empty
+                        <input required="true" type="text" [(ngModel)]="dto.phoneNo" id="phone" name="PHONE" #phone="ngModel" pattern="[0-9]{10}"/>
+                        <div *ngIf="phone.invalid == true && phone.pristine == false && phone.touched==true" style="color:red;">
+                            Enter a Valid Phone Number
                         </div>
                     </td>
                 </tr>
                 <tr>
                     <td>Email ID - </td>
                     <td>
-                        <input type="text" [(ngModel)]="dto.emailId" id="email" name="email" #email="ngModel"/>
-                        <div *ngIf="email.invalid == true && email.pristine == false && email.touched==true" 
-                                    style="color:red;font-style: italic;font-size: small;">
-                            EmailId cannot be Empty
+                        <input required="true" type="text" [(ngModel)]="dto.emailId" id="email" name="email" #email="ngModel" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"/>
+                        <div *ngIf="email.invalid == true && email.pristine == false && email.touched==true"
+                                    style="color:red;">
+                            Enter A Valid Email
                         </div>
                     </td>
                     <td></td>
@@ -51,10 +49,10 @@
                 <tr>
                     <td>Age - </td>
                     <td>
-                        <input type="number" [(ngModel)]="dto.age" id="age" name="age" #age="ngModel"/>
-                        <div *ngIf="age.invalid == true && age.pristine == false && age.touched==true" 
-                                    style="color:red;font-style: italic;font-size: small;">
-                            Age cannot be Empty
+                        <input required="true" type="number" [(ngModel)]="dto.age" id="age" name="age" #age="ngModel" min="10"/>
+                        <div *ngIf="age.invalid == true && age.pristine == false && age.touched==true"
+                                    style="color:red;">
+                            Provide a Valid Age
                         </div>
                     </td>
                     <td></td>
@@ -62,25 +60,18 @@
                 <tr>
                     <td>Gender - </td>
                     <td>
-                        <input type="text" [(ngModel)]="dto.gender" id="gender" name="gender" #gender="ngModel"/>
-                        <!-- <select [(ngModel)]="dto.gender" #gender="ngModel" (ngModelChange)="onChange()">
-                            <option value="MALE">Male</option>
-                            <option value="FEMALE">Female</option>
-                        </select>  -->
-                        <div *ngIf="gender.invalid == true && gender.pristine == false && gender.touched==true" 
-                                    style="color:red;font-style: italic;font-size: small;">
-                                    Gender cannot be Empty
-                        </div>
+                        <select [(ngModel)]="dto.gender" id="gender" name="gender">
+                            <option value="MALE">MALE</option>
+                            <option value="FEMALE">FEMALE</option>
+                        </select>
                     </td>
                     <td></td>
                 </tr>
             </table>
             <div class="text-center mt-3">
-                <input type="submit" class="btn btn-primary ms-2" value="Update Account" />
+                <button type="submit" [disabled]="registerForm.invalid" class="btn btn-primary ms-2"  >Submit</button>
             </div>
         </form>
     </div>
     </div>
 </div>
-
-

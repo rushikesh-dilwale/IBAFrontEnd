@@ -1,36 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Change Debit Card PIN</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
-<body>
-
-<div class="container mt-4">
-    <h2>Change Debit Card PIN</h2>
-    <form (ngSubmit)="onSubmit()">
-      
-      <div class="form-group">
-        <label for="debitCardNumber">Debit Card Number:</label>
-        <input type="number" id="debitCardNumber" [(ngModel)]="dto.debitCardNumber" name="debitCardNumber" class="form-control">
-      </div>
-  
-      <div class="form-group">
-        <label for="newPin">New PIN:</label>
-        <input type="password" id="newPin" name="newPin" [(ngModel)]="newPin" class="form-control">
-      </div>
-  
-      <button type="submit" class="btn btn-primary">Change PIN</button>
-    </form>
+<div style="display: flex;justify-content: space-evenly; padding-top: 30px;">
+  <div class="card">
+      <div class="card-body">
+          <form (ngSubmit)="onSubmit()">
+              <div class="container mt-2">
+                  <h3 class="font-weight-bold text-info text-center">Change Debit Card PIN</h3><br>
+              </div>
+              <table class="table">
+                  <tr>
+                      <td>Debit Card Number - </td>
+                      <td> 
+                        <div class="form-group">
+                          <input type="number" id="debitCardNumber" [(ngModel)]="dto.debitCardNumber" name="debitCardNumber" class="form-control">
+                        </div>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>New PIN - </td>
+                      <td> 
+                        <div class="form-group">
+                          <input type="password" id="newPin" name="newPin" [(ngModel)]="newPin" class="form-control">
+                        </div>
+                      </td>
+                  </tr>
+              </table>
+              <div class="text-center mt-3">
+                <button type="submit" class="btn btn-primary ms-2">Change PIN</button>
+              </div>
+          </form>
+      </div> 
+  </div>
 </div>
-
-<!-- Include Angular Scripts Here -->
-<!-- Replace these script paths with the correct paths based on your project structure -->
-<script src="/path/to/angular.js"></script>
-<script src="/path/to/your-component.js"></script>
-<!-- Include Angular Scripts Here -->
-
-</body>
-</html>

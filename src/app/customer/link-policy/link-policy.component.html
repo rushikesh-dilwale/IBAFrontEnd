@@ -1,29 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <title>Your Page Title</title>
-</head>
-<body>
-
-<div class="container mt-4">
-    <form (ngSubmit)="onSubmit()">
-        <div class="mb-3">
-            <label for="accountId" class="form-label">Account Id</label>
-            <input type="text" [(ngModel)]="dto.accountId" class="form-control" id="accountId" name="accountId">
-        </div>
-
-        <div class="mb-3">
-            <label for="policyNumber" class="form-label">Policy Id</label>
-            <input type="text" [(ngModel)]="pol_dto.policyNumber" class="form-control" id="policyNumber" name="policyNumber">
-        </div>
-
-        <button type="submit" class="btn btn-primary">Buy Policy</button>
-    </form>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+<div style="display: flex;justify-content: space-evenly; padding-top: 30px;">
+    <div class="card">
+        <div class="card-body">
+            <form (ngSubmit)="onSubmit()">
+                <div class="container mt-2">
+                    <h3 class="font-weight-bold text-info text-center">Purchase Policy</h3><br>
+                </div>
+                <table class="table">
+                    <tr>
+                        <td>
+                            <label for="accountId" class="form-label">Account Id</label>
+                        </td>
+                        <td> 
+                            <div class="form-group">
+                                <input type="text" [(ngModel)]="dto.accountId" class="form-control" id="accountId" name="accountId">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="policyNumber" class="form-label">Policy Id</label>
+                        </td>
+                        <td> 
+                            <div class="form-group">
+                                <input type="text" [(ngModel)]="pol_dto.policyNumber" class="form-control" id="policyNumber" name="policyNumber">
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <div class="text-center mt-3">
+                    <button type="submit" class="btn btn-primary">Buy Policy</button>
+                </div>
+            </form>
+        </div> 
+    </div>
+  </div>

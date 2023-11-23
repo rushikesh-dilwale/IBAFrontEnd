@@ -1,26 +1,31 @@
-<div>
-    <h2>Transaction Details</h2>
-    <form #depositForm='ngForm' (ngSubmit)="doDeposit()">
-        
-        <label>Transaction Amount</label>
-        <input type ="number" id="amount" name="amount" [(ngModel)]="amount" #amount1="ngModel" min="1">
-        <div *ngIf="amount1.invalid==true && amount1.pristine==false && amount1.touched==true" style="color: red;">Amount less than Zero Cannot be Entered </div>
-        <br><br>
-        <label>Transaction Remark</label>
-        <input required="true" type="text" [(ngModel)]="depositDto.transactionRemarks" id="transactionRemarks" name="transactionRemarks" #remark="ngModel" pattern="[0-9a-zA-Z]{3,100}">
-        <div *ngIf="remark.invalid==true && remark.pristine==false && remark.touched==true" style="color: red;">Please Provide Proper Remark</div>
-        <br><br>
-       
-        <button type="submit" class="btn btn-primary ms-2" [disabled]="depositForm.invalid">Deposit</button><br><br>
-        
-    </form>
-    <button style="margin-left: 30;" class="btn btn-primary ms-2" [disabled]="depositForm.invalid" (click)="withdraw()">Withdraw</button><br><br>
-    
-    
-
-   
-
-    
-       
+<div style="display: flex;justify-content: space-evenly; padding-top: 30px;">
+    <div class="card">
+        <div class="card-body">
+            <form #depositForm='ngForm' (ngSubmit)="doDeposit()">
+                <div class="container mt-2">
+                    <h3 class="font-weight-bold text-info text-center">Transaction Details</h3><br>
+                </div>
+                <table class="table">
+                    <tr>
+                        <td>Transaction Amount - </td>
+                        <td> 
+                            <input type ="number" id="amount" name="amount" [(ngModel)]="amount" #amount1="ngModel" min="1">
+                            <div *ngIf="amount1.invalid==true && amount1.pristine==false && amount1.touched==true" style="color: red;">Amount less than Zero Cannot be Entered </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Transaction Remark - </td>
+                        <td> 
+                            <input required="true" type="text" [(ngModel)]="depositDto.transactionRemarks" id="transactionRemarks" name="transactionRemarks" #remark="ngModel" pattern="[0-9a-zA-Z]{3,100}">
+                            <div *ngIf="remark.invalid==true && remark.pristine==false && remark.touched==true" style="color: red;">Please Provide Proper Remark</div>
+                        </td>
+                    </tr>
+                </table>
+                <div class="text-center mt-3">
+                    <button type="submit" class="btn btn-primary ms-5" style="margin-right: 20px;" [disabled]="depositForm.invalid">Deposit</button>
+                    <button class="btn btn-primary ms-5" [disabled]="depositForm.invalid" (click)="withdraw()">Withdraw</button>
+                </div>
+            </form>
+        </div> 
+    </div>
 </div>
-

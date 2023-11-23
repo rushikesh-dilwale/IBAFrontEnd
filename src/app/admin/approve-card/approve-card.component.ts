@@ -40,7 +40,7 @@ export class ApproveCardComponent implements OnInit{
 
   createJson(request: Requestdto){
     localStorage.setItem('accountId',request.accountId+'');
-    
+    this.__adminService.deleteServiceRequest(request.requestId);
     this.router.navigateByUrl("/create-debit-card");
   }
 }

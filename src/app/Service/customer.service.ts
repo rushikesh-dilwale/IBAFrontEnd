@@ -163,9 +163,9 @@ export class CustomerService {
     var endpoint = `${this.contextpath}customer/${debitCardNumber}/request-new-card`;
     return this.api.put<DebitCardDto>(`${endpoint}`, []);
   }
-  checkDebitCardExpiry(debitCardNumber: number): Observable<string> {
+  checkDebitCardExpiry(debitCardNumber: number): Observable<any> {
     var endpoint = this.contextpath + 'customer/' + debitCardNumber + '/check-expiry';
-    return this.api.get<string>(`${endpoint}`);
+    return this.api.get<any>(`${endpoint}`);
   }
 
   generaterequest(dto:Requestdto):Observable<Requestdto>{

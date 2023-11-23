@@ -1,21 +1,37 @@
-<div>
-    <h2>Transfer Amount To The Beneficiary Account</h2>
-    <form #transferForm="ngForm" (ngSubmit)="transfer()">
-    <label >Amount:-</label>
-    <input required="true" type="number" id="amount "  name="amount" [(ngModel)]="amount" #am="ngModel" min="1" >
-    <div *ngIf="am.invalid==true && am.pristine==false && am.touched==true " style="color: red;">Please Enter Valid Amount</div>
-    <br><br>
-    <label >Receiver AccountId:-</label>
-    <input required="true" type="number" id="receiver" name="receiver" [(ngModel)]="receiverAccountId" #rece="ngModel" min="1">
-    <div *ngIf="rece.invalid==true && rece.pristine==false && rece.touched==true " style="color: red;">Please Enter Valid Account Number</div>
-
-    <br><br>
-    <label >Password:-</label>
-    <input required="true" type="password" id="pass" name="pass" [(ngModel)]="password" #pas="ngModel" minlength="3">
-    <div *ngIf="pas.invalid==true && pas.pristine==false && pas.touched==true " style="color: red;">Please Enter Correct Password</div>
-
-    <button type="submit" [disabled]="transferForm.invalid">Transfer</button>
-    </form>
-
-   
+<div style="display: flex;justify-content: space-evenly; padding-top: 30px;">
+    <div class="card">
+        <div class="card-body">
+            <form #transferForm="ngForm" (ngSubmit)="transfer()">
+                <div class="container mt-2">
+                    <h3 class="font-weight-bold text-info text-center">Transfer Amount To Beneficiary</h3><br>
+                </div>
+                <table class="table">
+                    <tr>
+                        <td>Amount - </td>
+                        <td> 
+                            <input required="true" type="number" id="amount "  name="amount" [(ngModel)]="amount" #am="ngModel" min="1" >
+                            <div *ngIf="am.invalid==true && am.pristine==false && am.touched==true " style="color: red;">Please Enter Valid Amount</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Receiver AccountId - </td>
+                        <td> 
+                            <input required="true" type="number" id="receiver" name="receiver" [(ngModel)]="receiverAccountId" #rece="ngModel" min="1">
+                            <div *ngIf="rece.invalid==true && rece.pristine==false && rece.touched==true " style="color: red;">Please Enter Valid Account Number</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Password - </td>
+                        <td> 
+                            <input required="true" type="password" id="pass" name="pass" [(ngModel)]="password" #pas="ngModel" minlength="3">
+                            <div *ngIf="pas.invalid==true && pas.pristine==false && pas.touched==true " style="color: red;">Please Enter Correct Password</div>
+                        </td>
+                    </tr>
+                </table>
+                <div class="text-center mt-3">
+                    <button type="submit" class="btn btn-primary ms-2" [disabled]="transferForm.invalid">Transfer</button>
+                </div>
+            </form>
+        </div> 
+    </div>
 </div>

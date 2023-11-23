@@ -4,7 +4,6 @@ import { NomineeDTO } from 'src/app/DTO/nominee-dto';
 import { CustomerService } from 'src/app/Service/customer.service';
 import { FormGroup,FormBuilder,Validators, NgForm } from '@angular/forms';
 
-
 @Component({
   selector: 'app-add-nominee',
   templateUrl: './add-nominee.component.html',
@@ -12,20 +11,18 @@ import { FormGroup,FormBuilder,Validators, NgForm } from '@angular/forms';
 })
 export class AddNomineeComponent implements OnInit{
 
-
-
   dto:NomineeDTO=new NomineeDTO(
-    0,"","","","",""
+    0,
+    "",
+    "",
+    "",
+    "",
+    ""
   )
-
-
 
     __customerService:CustomerService;
     router:Router;
-
     nomineeForm:FormGroup=new FormGroup({});
-
-    
 
     constructor(___customerService:CustomerService,
       router:Router,
@@ -41,7 +38,6 @@ export class AddNomineeComponent implements OnInit{
           phoneNumber:['',[Validators.required,Validators.min(9),Validators.max(11),Validators.pattern(/^[0-9]+$/)]]
         })
       }
-  
 
   addNominee(){
     console.log("inside nominee ts");
@@ -52,24 +48,20 @@ export class AddNomineeComponent implements OnInit{
         let nomineeId=localStorage.getItem('nomineeId1');
         let accNum=localStorage.getItem('accountId');
         if(nomineeId!=null && accNum!=null){
-
-         
-          this.__customerService.linkNomineeToAcccount(parseInt(nomineeId),parseInt(accNum)).subscribe((data)=>{
-          alert(nomineeId+"Nominee is allocated to the account"+accNum);  
-          },(err)=>{
+          this.__customerService.linkNomineeToAcccount(parseInt(nomineeId),parseInt(accNum)).subscribe(
+          (data)=>{
+            alert(nomineeId+" Nominee is allocated to the account "+accNum);  
+            this.router.navigateByUrl("/customer/home");
+          },
+          (err)=>{
             console.log(err.err);
             console.log(err.message); 
-          }
-          )
-
+          });
         }
-      }, (err) => {
+      }, 
+      (err) => {
         console.log(err.err);
         console.log(err.message);
-      }
-    );
-    
-    
-    
+      }); 
   }
 }
