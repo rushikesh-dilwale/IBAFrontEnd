@@ -40,7 +40,7 @@ const routes: Routes = [
   { path: "register", component:RegistrationComponent },
   { path: "forgot", component:ForgotPasswordComponent },
   { path: "reset", component:ResetPasswordComponent },
-  { path: "userHome", component:HomeComponantComponent },
+  { path: "", component:HomeComponantComponent },
   { path: "adminhome", component:AdminHomeComponent },
   { path: 'customer', component: CustomerComponent },
 

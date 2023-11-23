@@ -1,11 +1,55 @@
-<nav>
-    <ul>
-      <button class="btn btn-primary ms-2" routerLink="/admin/all/account">Show All Account</button><br><br>
-      <button class="btn btn-primary ms-2" routerLink="/admin/id">Show Account By Account Id</button><br><br>
-      <button class="btn btn-primary ms-2" routerLink="/admin/approve">Approve Pending Accounts</button><br><br>
-      <button class="btn btn-primary ms-2" routerLink="/admin/approve/card">Show all Requests</button>
-      <button class="btn btn-primary ms-2" routerLink="/create-policy">Create Policy</button>
-      <button class="btn btn-primary ms-2" routerLink="/update-policy">Update Premium Amount</button>
-      <button class="btn btn-primary ms-2" routerLink="/fetch-policy">All Policies</button>
-    </ul>
-  </nav>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <title>Your App</title>
+  <style>
+    th {
+      text-align: center;
+      background-color: #1a4069;
+      color: #ffffff;
+    }
+ 
+    td {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+ 
+<div class="container mt-4">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Account</th>
+        <th>Policy</th>
+        <th>Debit Card</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="text-dark" routerLink="/admin/all/account">Show All Account</a></td>
+        <td><a class="text-dark" routerLink="/create-policy">Create Policy</a></td>
+        <td><a class="text-dark" routerLink="/admin/approve/card">All Debit Requests</a></td>
+      </tr>
+      <tr>
+        <td><a class="text-dark" routerLink="/admin/id">Show Account By Account Id</a></td>
+        <td><a class="text-dark" routerLink="/update-policy">Update Premium Amount</a></td>
+       
+      </tr>
+      <tr>
+        <td><a class="text-dark" routerLink="/admin/approve">Approve Pending Accounts</a></td>
+        <td><a class="text-dark" routerLink="/fetch-policy">All Policies</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+ 
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

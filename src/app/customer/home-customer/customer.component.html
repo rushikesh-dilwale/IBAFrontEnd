@@ -1,24 +1,82 @@
-<div class="dashboard">
-    <button class="btn btn-primary ms-2" routerLink="/register/account" *ngIf="!dto.accountHolderName && !dto.accountId">Register New Account</button><br><br>
-    <button class="btn btn-primary ms-2" routerLink="/personal/account">My Account</button><br><br>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <title>Your App</title>
+  <style>
     
-    <button class="btn btn-primary ms-2" routerLink="/customer/nominee">Add Nominee</button><br><br>
-    <button class="btn btn-primary ms-2" routerLink="/normalUser/viewNominee">View Nominee</button><br><br>
-    <button class="btn btn-primary ms-2" routerLink="/normalUser/viewNomineeById">View Nominee By Id</button><br><br>
-    <button class="btn btn-primary ms-2" routerLink="/customer/deposit1">Transaction</button><br><br>
-    <button style="margin-left: 30;" class="btn btn-primary ms-2"  routerLink='/normalUser/listAllTransaction'>Search Between Two Date</button><br><br>
-    <button style="margin-left: 30;" class="btn btn-primary ms-2"  routerLink='/customer/transferMoney'>Transfer Money To Beneficiary Accoount</button>
+    th {
+      text-align: center;
+      background-color: #1a4069;
+      color: #ffffff;
+    }
 
+    td {
+      text-align: center;
+    }
 
-    <button class="btn btn-primary ms-2" routerLink="/customer/change-pin">Change Pin</button><br><br>
-    <button class="btn btn-primary ms-2" routerLink="/customer/request-new-card">request-new-card</button><br><br>
-    <button class="btn btn-primary ms-2" routerLink="/customer/update">Update Account</button>
-    <button class="btn btn-primary ms-2" routerLink="/debit-check-expiry">Debit Check Expiry</button>
-    <button class="btn btn-primary ms-2" routerLink="/beneficiary">Create Beneficiary</button>
-    <button class="btn btn-primary ms-2" routerLink="/view/beneficiary">View All Beneficiary</button>
+    /* Add this style for equal spacing and text wrapping */
+    .table td, .table th {
+      white-space: normal;
+      word-wrap: break-word;
+    }
+  </style>
+</head>
+<body>
 
-    <button class="btn btn-primary ms-2" routerLink="/link-policy">Purchase Policy</button>
-    <button class="btn btn-primary ms-2" routerLink="/customer/check-expiry">Check Expiry</button>
-    <button class="btn btn-primary ms-2" routerLink="/all-policy-by-accnum">Search Policy</button>
-    <button class="btn btn-primary ms-2" routerLink="/fetch-cust-policy">All Policies</button>
-  </div>
+<div style="padding: -2%;" class="container mt-4">
+  <table class="table table-bordered table-responsive">
+    <thead>
+      <tr>
+        <th>Account</th>
+        <th>Beneficiary Account</th>
+        <th>Policy</th>
+        <th>Debit Card</th>
+        <th>Transaction</th>
+        <th>Nominee</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="text-dark" routerLink="/register/account" *ngIf="!dto.accountHolderName && !dto.accountId">Register New Account</a></td>
+        <td><a class="text-dark" routerLink="/beneficiary">Create Beneficiary</a></td>
+        <td><a class="text-dark" routerLink="/link-policy">Purchase Policy</a></td>
+        <td><a class="text-dark" routerLink="/customer/request-new-card">Request New Debit Card</a></td>
+        <td><a class="text-dark" routerLink="/customer/deposit1">Transaction</a></td>
+        <td><a class="text-dark" routerLink="/customer/nominee">Add Nominee</a></td>
+      </tr>
+      <tr>
+        <td><a class="text-dark" routerLink="/personal/account">My Account</a></td>
+        <td><a class="text-dark" routerLink="/view/beneficiary">View All Beneficiary</a></td>
+        <td><a class="text-dark" routerLink="/customer/check-expiry">Check Expiry</a></td>
+        <td><a class="text-dark" routerLink="/debit-check-expiry">Debit Check Expiry</a></td>
+        <td><a class="text-dark" routerLink='/normalUser/listAllTransaction'>Search Between Two Date</a></td>
+        <td><a class="text-dark" routerLink="/normalUser/viewNominee">View Nominee</a></td>
+      </tr>
+      <tr>
+        <td><a class="text-dark" routerLink="/customer/update">Update Account</a></td>
+        <td></td>
+        <td><a class="text-dark" routerLink="/all-policy-by-accnum">Search Policy</a></td>
+        <td><a class="text-dark" routerLink="/customer/change-pin">Change Pin</a></td>
+        <td><a class="text-dark" routerLink='/customer/transferMoney'>Transfer Money To Beneficiary Account</a></td>
+        <td><a class="text-dark" routerLink="/normalUser/viewNomineeById">View Nominee By Id</a></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td><a class="text-dark" routerLink="/fetch-cust-policy">All Policies</a></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
