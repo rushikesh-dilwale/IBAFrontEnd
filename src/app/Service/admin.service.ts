@@ -25,25 +25,8 @@ export class AdminService {
   updateAccountStatus = this.contextPath + "admin/account/status/";
   createNewDebitCard=this.contextPath + "admin/createDebitCard";
   doAccountLinkWithdebit1=this.contextPath + "admin/allocateDebitCardToAccount";
-  getAllRequest=this.contextPath + "admin/all/requests"
+  getAllRequest=this.contextPath + "admin/all/requests";
 
-  doSavingAccountRegistration(dto:AccountResponseDTO): Observable<AccountResponseDTO>{
-    console.log('Inside Service of saving account register'+dto.accountHolderName);
-    let outcome = this.api.post<AccountResponseDTO>(
-      `${this.addSavingAccountEndPoint}`, dto
-    );
-    return outcome;
-  }
-
-  doCurrentAccountRegistration(dto:AccountResponseDTO): Observable<AccountResponseDTO>{
-    console.log('Inside Service of current account register'+dto.accountHolderName);
-    let outcome = this.api.post<AccountResponseDTO>(
-      `${this.addCurrentAccountEndPoint}`, dto
-    );
-    return outcome;
-  }
-
-  updateAccountStatus = this.contextPath + "admin/account/status/";
   registerNewPolicy = this.contextPath + 'admin/policy/save';
   getPolicyByAccId = this.contextPath + 'normaluser/getPolicyByAccountId';
   getAllPolicies = this.contextPath + 'admin/policy/allpolicies';
@@ -111,10 +94,11 @@ export class AdminService {
     return outcome;
   }
 
-  doAccountLinkWithdebit(accNum:number,debitCardNumber:number):Observable<DebitCardDto>{
+  doAccountLinkWithdebit(accNum:number,debitCardNumber:number): Observable<DebitCardDto>{
     var endpoint = this.doAccountLinkWithdebit1 + "?accNum="+accNum+"&debitCardNum="+debitCardNumber;
     console.log('Inside Service ');
     let outcome =this.api.put<DebitCardDto>(`${endpoint}`,[]);
+    return outcome;
   }
 
   registerPolicy(dto:PolicyDto): Observable<PolicyDto>{

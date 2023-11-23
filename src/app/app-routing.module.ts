@@ -16,6 +16,20 @@ import { ViewNomineeComponent } from './customer/view-nominee/view-nominee.compo
 import { ViewNomineeIdComponent } from './customer/view-nominee-id/view-nominee-id.component';
 import { ApproveAccountsComponent } from './admin/approve-accounts/approve-accounts.component';
 import { DepositAmountsComponent } from './customer/deposit-amounts/deposit-amounts.component';
+import { ViewBeneficiaryIdComponent } from './customer/view-beneficiary-id/view-beneficiary-id.component';
+import { CreateBeneficiaryComponent } from './customer/create-beneficiary/create-beneficiary.component';
+import { ApproveCardComponent } from './admin/approve-card/approve-card.component';
+import { CreateDebitCardComponent } from './admin/create-debit-card/create-debit-card.component';
+import { CreatePolicyComponent } from './admin/create-policy/create-policy.component';
+import { UpdatePolicyComponent } from './admin/update-policy/update-policy.component';
+import { FetchPolicyComponent } from './admin/fetch-policy/fetch-policy.component';
+import { AllPolicyComponent } from './admin/all-policy/all-policy.component';
+import { ChangePinComponent } from './customer/change-pin/change-pin.component';
+import { RequestNewCardComponent } from './customer/request-new-card/request-new-card.component';
+import { CheckExpiryComponent } from './customer/check-expiry/check-expiry.component';
+import { UpdateAccountComponent } from './customer/update-account/update-account.component';
+import { LinkPolicyComponent } from './customer/link-policy/link-policy.component';
+import { DebitCheckExpiryComponent } from './customer/debit-check-expiry/debit-check-expiry.component';
 
 
 const routes: Routes = [
@@ -36,10 +50,21 @@ const routes: Routes = [
   { path: 'normalUser/viewNominee',component:ViewNomineeComponent},
   { path: 'normalUser/viewNomineeById',component:ViewNomineeIdComponent},
   { path: 'customer/deposit1',component:DepositAmountsComponent},
-  { path: 'admin/approve', component: ApproveAccountsComponent }
-
+  { path: 'admin/approve', component: ApproveAccountsComponent },
   { path: 'beneficiary', component: CreateBeneficiaryComponent},
-  { path: 'view/beneficiary', component: ViewBeneficiaryIdComponent}
+  { path: 'admin/approve/card', component: ApproveCardComponent },
+  { path: 'create-debit-card', component: CreateDebitCardComponent},
+  { path: 'view/beneficiary', component: ViewBeneficiaryIdComponent},
+  { path: 'create-policy', component: CreatePolicyComponent},
+  { path: 'update-policy', component: UpdatePolicyComponent},
+  { path: 'all-policy-by-accnum', component: AllPolicyComponent},
+  { path: 'fetch-policy', component: FetchPolicyComponent},
+  { path: 'customer/change-pin', component: ChangePinComponent},
+  { path: 'customer/request-new-card', component: RequestNewCardComponent},
+  { path: 'customer/check-expiry', component: CheckExpiryComponent},
+  { path: 'customer/update', component: UpdateAccountComponent },
+  { path: 'link-policy', component: LinkPolicyComponent},
+   { path: 'debit-check-expiry', component: DebitCheckExpiryComponent},
 ];
 
 @NgModule({

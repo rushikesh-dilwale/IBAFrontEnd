@@ -16,7 +16,6 @@ import { CustomerModule } from './customer/customer.module';
 import { AdminModule } from './admin/admin.module';
 import { CreateDebitCardComponent } from './admin/create-debit-card/create-debit-card.component';
 import { ChangePinComponent } from './customer/change-pin/change-pin.component';
-import { CheckExpiryComponent } from './customer/check-expiry-component/check-expiry-component.component';
 import { CreatePolicyComponent } from './admin/create-policy/create-policy.component';
 import { UpdatePolicyComponent } from './admin/update-policy/update-policy.component';
 import { DeletePolicyComponent } from './admin/delete-policy/delete-policy.component';
@@ -36,15 +35,12 @@ import { CheckExpiryComponent } from './customer/check-expiry/check-expiry.compo
     AdminHomeComponent,
     CustomerComponent,
     CreateDebitCardComponent,
-    ChangePinComponent,
-    CheckExpiryComponent
     CreatePolicyComponent,
     UpdatePolicyComponent,
     DeletePolicyComponent,
     AllPolicyComponent,
     FetchPolicyComponent,
-    LinkPolicyComponent,
-    CheckExpiryComponent
+    LinkPolicyComponent
   ],
   imports: [
     BrowserModule,

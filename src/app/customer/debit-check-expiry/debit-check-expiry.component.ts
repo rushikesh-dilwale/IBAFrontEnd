@@ -1,14 +1,14 @@
-// check-expiry.component.ts
 import { Component } from '@angular/core';
 import { DebitCardDto } from 'src/app/DTO/debit-card-dto';
 import { CustomerService } from 'src/app/Service/customer.service';
 
 @Component({
-  selector: 'app-check-expiry',
-  templateUrl: './check-expiry-component.component.html',
-  styleUrls: ['./check-expiry-component.component.css']
+  selector: 'app-debit-check-expiry',
+  templateUrl: './debit-check-expiry.component.html',
+  styleUrls: ['./debit-check-expiry.component.css']
 })
-export class CheckExpiryComponent {
+export class DebitCheckExpiryComponent {
+
   dto:DebitCardDto = new DebitCardDto(
     0,
     new Date(),
@@ -32,8 +32,6 @@ export class CheckExpiryComponent {
         },
         (err) => {
           console.log('Error checking Debit Card Expiry:', err);
-          
-          
         }
       );
     } else {
@@ -41,4 +39,3 @@ export class CheckExpiryComponent {
     }
   }
 }
-
