@@ -1,5 +1,6 @@
 // request-new-card.component.ts
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Requestdto } from 'src/app/DTO/requestdto';
 import { CustomerService } from 'src/app/Service/customer.service';
 
@@ -14,8 +15,13 @@ export class RequestNewCardComponent {
   dto:Requestdto = new Requestdto(
     0,0,'',0,'',''
   )
-
-  constructor(private customerService: CustomerService) {}
+  router: Router;
+  constructor(
+    private customerService: CustomerService,
+    router: Router
+    ) {
+      this.router = router;
+    }
 
   onSubmit() {
     this.dto.requestType = "PENDING";
@@ -23,6 +29,7 @@ export class RequestNewCardComponent {
       (data) => {
         localStorage.setItem('Account Id', data.accountId+'')
         console.log('New Debit Card requested successfully:', data);
+        this.router.navigateByUrl("/customer/home");
       },
       (err) => {
         console.log('Error requesting new Debit Card:', err);

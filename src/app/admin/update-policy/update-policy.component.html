@@ -1,14 +1,32 @@
-<div class="container mt-4">
-    <h3>Update Premium Amount</h3>
-    <form (ngSubmit)="onSubmit()">
-        <div class="mb-3">
-            <label for="policyNumber" class="form-label">Policy Id</label>
-            <input type="text" [(ngModel)]="dto.policyNumber" class="form-control" id="policyNumber" name="policyNumber">
-        </div>
-        <div class="mb-3">
-            <label for="newPremiumAmount" class="form-label">Premium Amount</label>
-            <input type="text" [(ngModel)]="newPremiumAmount" class="form-control" id="newPremiumAmount" name="newPremiumAmount">
-        </div>
-        <button type="submit" class="btn btn-primary">Update Premium Amount</button>
-    </form>
+<div style="display: flex;justify-content: space-evenly; padding-top: 30px;">
+    <div class="card">
+        <div class="card-body">
+            <form #nomineeForm="ngForm" (ngSubmit)="onSubmit()">
+                <div class="container mt-2">
+                    <h3 class="font-weight-bold text-info text-center">Update Premium Amount</h3><br>
+                </div>
+                <table class="table">
+                    <tr>
+                        <td>
+                            <label for="policyNumber" class="form-label">Policy Id</label>
+                        </td>
+                        <td>  
+                            <input type="text" [(ngModel)]="dto.policyNumber" class="form-control" id="policyNumber" name="policyNumber">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="newPremiumAmount" class="form-label">Premium Amount</label>
+                        </td>
+                        <td> 
+                            <input type="text" [(ngModel)]="newPremiumAmount" class="form-control" id="newPremiumAmount" name="newPremiumAmount">
+                        </td>
+                    </tr>
+                </table>
+                <div class="text-center mt-3">
+                    <button type="submit" class="btn btn-primary ms-2">Update Premium Amount</button>
+                </div>
+            </form>
+        </div> 
+    </div>
 </div>

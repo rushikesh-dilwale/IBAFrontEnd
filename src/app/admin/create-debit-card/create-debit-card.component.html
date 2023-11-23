@@ -1,54 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create New Debit Card</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
-<body>
-
-<div style="display: flex; justify-content: space-evenly; margin-top: 7%;">
-
-    <div class="ms-2">
-        <form (ngSubmit)="onSubmit()" class="p-3 border border-secondary rounded">
-            <h3 class="mb-3">Create New Debit Card</h3>
-
-            <!-- <div class="mb-3">
-                <label for="debitCardNumber" class="form-label">Debit Card Number:</label>
-                <input type="text" [(ngModel)]="dto.debitCardNumber" id="debitCardNumber" name="debitCardNumber" class="form-control" required>
-            </div> -->
-
-            <div class="mb-3">
-                <label for="debitCardLimit" class="form-label">Debit Card Limit:</label>
-                <input type="number" [(ngModel)]="dto.debitCardLimit" id="debitCardLimit" name="debitCardLimit" class="form-control" required>
-            </div>
-
-            <div class="mb-3">
-                <label for="debitCardPin" class="form-label">Debit Card Pin:</label>
-                <input type="number" [(ngModel)]="dto.debitCardPin" id="debitCardPin" name="debitCardPin" class="form-control" required>
-            </div>
-
-            <!-- <div class="mb-3">
-                <label for="issueDate" class="form-label">Issue Date:</label>
-                <input type="date" [(ngModel)]="dto.issueDate" id="issueDate" name="issueDate" class="form-control" required>
-            </div> -->
-
-            <!-- <div class="mb-3">
-                <label for="expiryDate" class="form-label">Expiry Date:</label>
-                <input type="text" [(ngModel)]="dto.expiryDate" id="expiryDate" name="expiryDate" class="form-control" required>
-            </div> -->
-
-            <input type="submit" class="btn btn-primary" value="Create Debit Card" />
-        </form>
+<div style="display: flex;justify-content: space-evenly; padding-top: 30px;">
+    <div class="card">
+        <div class="card-body">
+            <form #nomineeForm="ngForm" (ngSubmit)="onSubmit()">
+                <div class="container mt-2">
+                    <h3 class="font-weight-bold text-info text-center">Create New Debit Card</h3><br>
+                </div>
+                <table class="table">
+                    <tr>
+                        <td>
+                            <label for="debitCardLimit" class="form-label">Debit Card Limit - </label>
+                        </td>
+                        <td>  
+                            <input type="number" [(ngModel)]="dto.debitCardLimit" id="debitCardLimit" name="debitCardLimit" class="form-control" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="debitCardPin" class="form-label">Debit Card Pin - </label>
+                        </td>
+                        <td> 
+                            <input type="number" [(ngModel)]="dto.debitCardPin" id="debitCardPin" name="debitCardPin" class="form-control" required>
+                        </td>
+                    </tr>
+                </table>
+                <div class="text-center mt-3">
+                    <input type="submit" class="btn btn-primary" value="Create Debit Card" />
+                </div>
+            </form>
+        </div> 
     </div>
 </div>
-
-<!-- Include Angular Scripts Here -->
-<!-- Replace these script paths with the correct paths based on your project structure -->
-<script src="/path/to/angular.js"></script>
-<script src="/path/to/your-component.js"></script>
-<!-- Include Angular Scripts Here -->
-
-</body>
-</html>

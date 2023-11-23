@@ -35,6 +35,7 @@ export class CreateDebitCardComponent {
           this.__adminService.doAccountLinkWithdebit(parseInt(accountId),parseInt(debitId))
             .subscribe((linkData) => {
               console.log('Account linked to Debit Card:', linkData.debitCardNumber);
+              alert("Debit card Created - "+linkData.debitCardNumber)
               this.router.navigateByUrl("/adminhome");
             }, (linkError) => {
               console.error('Error linking Account to Debit Card:', linkError);

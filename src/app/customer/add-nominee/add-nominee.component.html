@@ -1,51 +1,54 @@
-<div style="display: flex;justify-content: space-evenly;">
-<div>,
-    <h2>Add New Nominee</h2>
-    <form #nomineeForm="ngForm" (ngSubmit)="addNominee()">
-        <table>
-        <tr>
-            <td>Name-</td>
-            <td> <input required="true" type="text" [(ngModel)]="dto.name" id="nomineeName"  name="nomineeName" #nom='ngModel' pattern="[a-zA-Z]+">
-            <div *ngIf="nom.invalid==true && nom.pristine==false && nom.touched==true" style="color:red;font-style: italic;font-size: small;">Please Enter Correct Name</div>
-            </td>
-        </tr>
-        <tr>
-            <td>Government Id-</td>
-            <td> <input required="true" type="text" [(ngModel)]="dto.govtId" id="govtId"  name="govtId" #govId="ngModel" pattern="[0-9A-Z]{12}">
-            <div *ngIf="govId.invalid==true && govId.pristine==false && govId.touched==true" style="color:red;font-style: italic;font-size: small;">Please Enter Correct Government Id</div>
-            </td>
-
-        </tr>
-        <tr>
-            <td>Government Id Type-</td>
-            <td> <select [(ngModel)]="dto.govtIdType" id="typeId" name="govtIdType">
-                <option value="Pan">PAN CARD</option>
-                <option value="Adhar">AADHAR CARD</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>Phone Number-</td>
-            <td> <input required="true" type="text" [(ngModel)]="dto.phoneNo" id="phoneNumber"  name="phoneNumber" #phNo="ngModel" pattern="[0-9]{10}">
-            <div *ngIf="phNo.invalid==true && phNo.pristine==false && phNo.touched==true" style="color:red;font-style: italic;font-size: small;">Please Enter Valid Phone Number</div>
-            </td>
-        </tr>
-        <tr>
-            <td>Relation -</td>
-            <td>
-            <select [(ngModel)]="dto.relation" id="relation" name="relation">
-                <option value="MOTHER">MOTHER</option>
-                <option value="FATHER">FATHER</option>
-                <option value="DAUGHTER">DAUGHTER</option>
-                <option value="SON">SON</option>
-                <option value="SPOUSE">SPOUSE</option>
-            </select>
-            </td>
-        </tr>
-        </table><br><br>
-
-        <button type="submit" class="btn btn-primary ms-2" [disabled]="nomineeForm.invalid">Submit</button>
-    </form>
-    
-</div>
+<div style="display: flex;justify-content: space-evenly; padding-top: 30px;">
+    <div class="card">
+        <div class="card-body">
+            <form #nomineeForm="ngForm" (ngSubmit)="addNominee()">
+                <div class="container mt-2">
+                    <h3 class="font-weight-bold text-info text-center">Add New Nominee</h3><br>
+                </div>
+                <table class="table">
+                    <tr>
+                        <td>Name-</td>
+                        <td> <input required="true" type="text" [(ngModel)]="dto.name" id="nomineeName"  name="nomineeName" #nom='ngModel' pattern="[a-zA-Z]+">
+                        <div *ngIf="nom.invalid==true && nom.pristine==false && nom.touched==true" style="color:red;font-style: italic;font-size: small;">Please Enter Correct Name</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Government Id-</td>
+                        <td> <input required="true" type="text" [(ngModel)]="dto.govtId" id="govtId"  name="govtId" #govId="ngModel" pattern="[0-9A-Z]{12}">
+                        <div *ngIf="govId.invalid==true && govId.pristine==false && govId.touched==true" style="color:red;font-style: italic;font-size: small;">Please Enter Correct Government Id</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Government Id Type-</td>
+                        <td> <select [(ngModel)]="dto.govtIdType" id="typeId" name="govtIdType">
+                            <option value="Pan">PAN CARD</option>
+                            <option value="Adhar">AADHAR CARD</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Phone Number-</td>
+                        <td> <input required="true" type="text" [(ngModel)]="dto.phoneNo" id="phoneNumber"  name="phoneNumber" #phNo="ngModel" pattern="[0-9]{10}">
+                        <div *ngIf="phNo.invalid==true && phNo.pristine==false && phNo.touched==true" style="color:red;font-style: italic;font-size: small;">Please Enter Valid Phone Number</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Relation -</td>
+                        <td>
+                        <select [(ngModel)]="dto.relation" id="relation" name="relation">
+                            <option value="MOTHER">MOTHER</option>
+                            <option value="FATHER">FATHER</option>
+                            <option value="DAUGHTER">DAUGHTER</option>
+                            <option value="SON">SON</option>
+                            <option value="SPOUSE">SPOUSE</option>
+                        </select>
+                        </td>
+                    </tr>
+                </table>
+                <div class="text-center mt-3">
+                    <button type="submit" class="btn btn-primary ms-2" [disabled]="nomineeForm.invalid">Submit</button>
+                </div>
+            </form>
+        </div> 
+    </div>
 </div>

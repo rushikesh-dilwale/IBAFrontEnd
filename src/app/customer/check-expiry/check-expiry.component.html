@@ -1,10 +1,29 @@
-<form (ngSubmit)="onSubmit()">
-    <h3>Check Expiry Date Of Policy</h3>
-    <label for="pol_id">Policy Id</label>
-    <input type="text" [(ngModel)]="pol_dto.policyNumber" id="policyNumber" name="policyNumber">
-
-    <input type="submit" class="btn btn-primary ms-2" value="Check Expiry" />
-    <div *ngIf="expiryStatus !== null" class="expiryStatus">
-        <p>Expiry Status: {{ expiryStatus }}</p>
+<div style="display: flex;justify-content: space-evenly; padding-top: 30px;">
+    <div class="card">
+        <div class="card-body">
+            <form (ngSubmit)="onSubmit()" class="mt-3">
+                <div class="container mt-2">
+                    <h3 class="font-weight-bold text-info text-center">Check Expiry Date Of Policy</h3><br>
+                </div>
+                <table class="table">
+                    <tr>
+                        <td>Policy Id - </td>
+                        <td> 
+                            <div class="form-group">
+                                <input type="text" [(ngModel)]="pol_dto.policyNumber" id="policyNumber" name="policyNumber">
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <div class="text-center mt-3">
+                    <input type="submit" class="btn btn-primary ms-2" value="Check Expiry" />
+                </div>
+                <div *ngIf="expiryStatus !== null" class="expiryStatus">
+                    <p>Expiry Status: {{ expiryStatus }}</p>
+                </div>
+            </form>
+        </div> 
     </div>
-</form>
+  </div>
+  
+  

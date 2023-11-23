@@ -25,10 +25,8 @@ export class DebitCheckExpiryComponent {
       this.customerService.checkDebitCardExpiry(this.dto.debitCardNumber).subscribe(
         (data) => {
           alert("Debit Card Expiry Status"+this.expiryStatus);
-          this.expiryStatus = data;
-
-          console.log('Debit Card Expiry Status:', data);
-         
+          this.expiryStatus = data.str;
+          console.log('Debit Card Expiry Status:', this.expiryStatus);
         },
         (err) => {
           console.log('Error checking Debit Card Expiry:', err);

@@ -30,6 +30,7 @@ export class AdminService {
   getAllPolicies = this.contextPath + 'admin/policy/allpolicies';
   deletepolicy = this.contextPath + 'admin/policy/delete/';
   updatepolicy = this.contextPath + 'admin/policy/update';
+  deleteReequest = this.contextPath + 'admin/remove/request';
 
   dogetRegisteredAccount(userId: number): Observable<AccountResponseDTO>{
     var endpoint = this.getAccountEndPoint + userId;
@@ -90,6 +91,12 @@ export class AdminService {
     console.log('Inside Service ');
     let outcome =this.api.put<DebitCardDto>(`${endpoint}`,[]);
     return outcome;
+  }
+
+  deleteServiceRequest(reqId: number){
+    let endpoint = this.deleteServiceRequest + "?reqId=" + reqId;
+    this.api.delete(`${endpoint}`);
+    console.log("Request Deleted");
   }
 
   registerPolicy(dto:PolicyDto): Observable<PolicyDto>{
