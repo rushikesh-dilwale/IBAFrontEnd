@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { TransactionDto } from '../DTO/transaction-dto';
 import { DepositDTO } from '../DTO/deposit-dto';
 import { AccountResponseDTO } from '../DTO/account-response-dto';
+import { BeneficiaryDto } from '../DTO/beneficiary-dto';
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +33,11 @@ export class CustomerService {
   getAccountById = this.contextpath + "normalUser/getAccountById?accountId=";
   linkPolicy = this.contextpath+'customer/allocatePolicyToAccount';
   checkExpiry = this.contextpath+'customer/policy/check-expiry';
+
+  createBeneficiary = this.contextpath + 'customer/addBeneficiary';
+  linkBeneficiary = this.contextpath + 'customer/allocateBeneficiaryToAccount';
+  deleteBeneficiary = this.contextpath + 'customer/deleteBeneficiary';
+  findBeneficiarybyId = this.contextpath + 'normalUser/listAllBeneficiariesbyAccount';
 
   dogetRegisteredAccount(userId: number): Observable<AccountResponseDTO>{
     var endpoint = this.getAccountEndPoint + userId;
@@ -135,6 +141,31 @@ export class CustomerService {
     var endpoint = this.checkExpiry+'?policyNumber='+policyNumber;
     let outcome = this.api.get<any>(`${endpoint}`);
     return outcome;
+  }
+
+  doCreateBeneficiary(dto: BeneficiaryDto): Observable<BeneficiaryDto>{
+    let outcome = this.api.post<BeneficiaryDto>(`${this.createBeneficiary}`,dto);
+    return outcome;
+  }
+
+  dolinkBeneficiarywithAccount(accountid:number,beneficiaryId:number): Observable<BeneficiaryDto>
+  {
+    var endpoint = this.linkBeneficiary + "?accNum="+accountid+"&beneficiaryId="+beneficiaryId;
+    console.log('Inside Service of do Beneficiary link with account.');
+    let outcome = this.api.put<BeneficiaryDto>(`${endpoint}`,[]);
+    return outcome;
+  }
+
+  dodeleteBeneficiary(beneficiaryId:number): Observable<any>{
+    var endpoint=this.deleteBeneficiary +"?beneficiaryId="+beneficiaryId;
+    let result=this.api.delete<any>(`${endpoint}`);
+    return result
+  }
+
+  doFindBeneficiaryByID(accountId:number): Observable<BeneficiaryDto[]>{
+    var endpoint=this.findBeneficiarybyId +"?accountid="+accountId;
+    let result=this.api.get<BeneficiaryDto[]>(`${endpoint}`);
+    return result
   }
 
 }

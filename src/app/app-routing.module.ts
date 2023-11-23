@@ -24,6 +24,8 @@ import { AllPolicyComponent } from './admin/all-policy/all-policy.component';
 import { FetchPolicyComponent } from './admin/fetch-policy/fetch-policy.component';
 import { LinkPolicyComponent } from './customer/link-policy/link-policy.component';
 import { CheckExpiryComponent } from './customer/check-expiry/check-expiry.component';
+import { CreateBeneficiaryComponent } from './customer/create-beneficiary/create-beneficiary.component';
+import { ViewBeneficiaryIdComponent } from './customer/view-beneficiary-id/view-beneficiary-id.component';
 
 const routes: Routes = [
   { path: "login", component:LoginPageComponent },
@@ -52,7 +54,10 @@ const routes: Routes = [
   { path: 'all-policy-by-accnum', component:AllPolicyComponent},
   { path: 'fetch-policy', component:FetchPolicyComponent},
   { path: 'link-policy', component: LinkPolicyComponent},
-  { path: 'check-expiry', component: CheckExpiryComponent}
+  { path: 'check-expiry', component: CheckExpiryComponent},
+
+  { path: 'beneficiary', component: CreateBeneficiaryComponent},
+  { path: 'view/beneficiary', component: ViewBeneficiaryIdComponent}
 ];
 
 @NgModule({

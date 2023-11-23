@@ -8,6 +8,8 @@ import { ViewNomineeIdComponent } from './view-nominee-id/view-nominee-id.compon
 import { AddNomineeComponent } from './add-nominee/add-nominee.component';
 import { DepositAmountsComponent } from './deposit-amounts/deposit-amounts.component';
 import { ViewNomineeComponent } from './view-nominee/view-nominee.component';
+import { CreateBeneficiaryComponent } from './create-beneficiary/create-beneficiary.component';
+import { ViewBeneficiaryIdComponent } from './view-beneficiary-id/view-beneficiary-id.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { ViewNomineeComponent } from './view-nominee/view-nominee.component';
     AddNomineeComponent,
     UpdateAccountComponent,
     DepositAmountsComponent,
-    ViewNomineeComponent
+    ViewNomineeComponent,
+    CreateBeneficiaryComponent,
+    ViewBeneficiaryIdComponent
   ],
   imports: [
     CommonModule,
