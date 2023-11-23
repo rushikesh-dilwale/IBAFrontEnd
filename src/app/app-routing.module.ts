@@ -34,6 +34,8 @@ import { CreatePolicyComponent } from './admin/create-policy/create-policy.compo
 import { UpdatePolicyComponent } from './admin/update-policy/update-policy.component';
 import { TransferMoneyComponent } from './customer/transfer-money/transfer-money.component';
 import { TransactionBetweenComponent } from './customer/transaction-between/transaction-between.component';
+import { ShowNomineeComponent } from './admin/show-nominee/show-nominee.component';
+import { ListTransactionComponent } from './admin/list-transaction/list-transaction.component';
 
 const routes: Routes = [
   { path: "login", component:LoginPageComponent },
@@ -77,6 +79,8 @@ const routes: Routes = [
   { path: 'admin/approve', component: ApproveAccountsComponent },
   { path: 'normalUser/listAllTransaction',component:TransactionBetweenComponent},
   { path: 'customer/transferMoney',component:TransferMoneyComponent},
+  { path: 'normalUser/showNominee',component:ShowNomineeComponent},
+  { path: 'normalUser/showAllTransaction',component:ListTransactionComponent}
   
 ];
 

@@ -11,6 +11,8 @@ import { CreatePolicyComponent } from './create-policy/create-policy.component';
 import { DeletePolicyComponent } from './delete-policy/delete-policy.component';
 import { FetchPolicyComponent } from './fetch-policy/fetch-policy.component';
 import { UpdatePolicyComponent } from './update-policy/update-policy.component';
+import { ShowNomineeComponent } from './show-nominee/show-nominee.component';
+import { ListTransactionComponent } from './list-transaction/list-transaction.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { UpdatePolicyComponent } from './update-policy/update-policy.component';
     CreatePolicyComponent,
     DeletePolicyComponent,
     FetchPolicyComponent,
-    UpdatePolicyComponent
+    UpdatePolicyComponent,
+    ShowNomineeComponent,
+    ListTransactionComponent
   ],
   imports: [
     CommonModule,
