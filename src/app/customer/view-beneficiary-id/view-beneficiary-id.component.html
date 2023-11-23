@@ -1,0 +1,23 @@
+<h2>Nominees</h2>
+<table id = "beneficiaries">
+    <thead>
+        <tr>
+            <th>Beneficiary ID</th>
+            <th>Beneficiary Account Number</th>
+            <th>Beneficiary Name</th>
+            <th>IFSC Code</th>
+            <th>Account Type</th>
+            <th>Delete Beneficiary</th>
+        </tr>
+    </thead>
+    <tbody id="beneficiaryBody">
+        <tr *ngFor="let beneficiary of allBeneficiaries">
+            <td>{{beneficiary.beneficiaryId}}</td>
+            <td>{{beneficiary.beneficiaryAccNo}}</td>
+            <td>{{beneficiary.beneficiaryName}}</td>
+            <td>{{beneficiary.ifsc}}</td>
+            <td>{{beneficiary.accountType}}</td> 
+            <td><button class="btn btn-primary" (click)="createJsonForBeneficiary(beneficiary)">Delete</button></td>
+          </tr>
+    </tbody>
+</table>

@@ -1,0 +1,65 @@
+<div style="display: flex;justify-content: space-evenly;">
+
+    <div class="card">
+        <div class="card-body">
+        <form (ngSubmit) = "doSubmit()" #form="ngForm">
+            <div class="container mt-2">
+                <h3 class="font-weight-bold text-info text-center">New Beneficiary Registration</h3><br>
+            </div>
+            <table class="table">
+                <tr>
+                    <td>Beneficiary Name - </td>
+                    <td>
+                        <input required="true"  type="text" [(ngModel)]="dto.beneficiaryName" id="bname" name="bname" #Name="ngModel"/>
+                        <div *ngIf="Name.invalid == true && Name.pristine == false && Name.touched==true" 
+                                    style="color:red;font-style: italic;font-size: small;">
+                            Beneficiary Name cannot be Empty
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Beneficiary Account Number - </td>
+                    <td>
+                        <input type="number" [(ngModel)]="dto.beneficiaryAccNo" id="accnum" name="accnum" #accnum="ngModel"/>
+                        <div *ngIf="accnum.invalid == true && accnum.pristine == false && accnum.touched==true" 
+                                    style="color:red;font-style: italic;font-size: small;">
+                            Account Number cannot be Empty
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>IFSC Code - </td>
+                    <td>
+                        <input type="text" [(ngModel)]="dto.ifsc" id="ifsc" name="ifsc" #ifsc="ngModel"/>
+                        <div *ngIf="ifsc.invalid == true && ifsc.pristine == false && ifsc.touched==true" 
+                                    style="color:red;font-style: italic;font-size: small;">
+                            IFSC cannot be Empty
+                        </div>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Account Type - </td>
+                    <td>
+                        <input type="text" [(ngModel)]="dto.accountType" id="type" name="type" #type="ngModel"/>
+                        <!-- <select [(ngModel)]="dto.gender" #gender="ngModel" (ngModelChange)="onChange()">
+                            <option value="MALE">Male</option>
+                            <option value="FEMALE">Female</option>
+                        </select>  -->
+                        <div *ngIf="type.invalid == true && type.pristine == false && type.touched==true" 
+                                    style="color:red;font-style: italic;font-size: small;">
+                                    Account Type cannot be Empty
+                        </div>
+                    </td>
+                    <td></td>
+                </tr>
+            </table>
+            <div class="text-center mt-3">
+                <input type="submit" class="btn btn-primary ms-2" value="Add Beneficiary" />
+            </div>
+        </form>
+    </div>
+    </div>
+</div>
+
+
