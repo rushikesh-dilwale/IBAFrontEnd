@@ -25,11 +25,12 @@ export class DeletePolicyComponent {
   onSubmit(){
     this.__adminService.deletePolicy(this.dto.policyNumber).subscribe(
       (data)=>{
-        // localStorage.setItem('policyNumber',data.policyNumber+'');
-        console.log(data);
+        this.dto =data;
       },
       (err) => {
-        console.log('Policy Deletion Error '+err);
+        console.log('Policy Deletion Error '+err.err);
+        console.log(err.msg);
+        
       }
     )
   }

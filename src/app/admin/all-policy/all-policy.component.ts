@@ -23,6 +23,8 @@ export class AllPolicyComponent {
     ''
   );
 
+  accId:number=0;
+
   dto:PolicyDto[] = [];
 
   __adminService: AdminService;
@@ -30,8 +32,8 @@ export class AllPolicyComponent {
     this.__adminService = ___adminService;
   }
 
-  doLoad(){
-    this.__adminService.getPolicyByAccNum(this.account.accountId).subscribe(
+  doLoad(accountId:number){
+    this.__adminService.getPolicyByAccNum(accountId).subscribe(
       (data) => {
         this.dto = data;
       }, 

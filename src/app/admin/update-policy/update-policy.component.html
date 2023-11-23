@@ -1,9 +1,14 @@
-<form (ngSubmit)="onSubmit()">
-    <label for="pol_id">Policy Id</label>
-    <input type="text" [(ngModel)]="dto.policyNumber" id="policyNumber" name="policyNumber">
-
-    <label for="prem">Premium Amount</label>
-    <input type="text" [(ngModel)]="newPremiumAmount" id="policyNumber" name="policyNumber">
-
-    <input type="submit" class="btn btn-primary ms-2" value="Update Premium Amount" />
-</form>
+<div class="container mt-4">
+    <h3>Update Premium Amount</h3>
+    <form (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+            <label for="policyNumber" class="form-label">Policy Id</label>
+            <input type="text" [(ngModel)]="dto.policyNumber" class="form-control" id="policyNumber" name="policyNumber">
+        </div>
+        <div class="mb-3">
+            <label for="newPremiumAmount" class="form-label">Premium Amount</label>
+            <input type="text" [(ngModel)]="newPremiumAmount" class="form-control" id="newPremiumAmount" name="newPremiumAmount">
+        </div>
+        <button type="submit" class="btn btn-primary">Update Premium Amount</button>
+    </form>
+</div>

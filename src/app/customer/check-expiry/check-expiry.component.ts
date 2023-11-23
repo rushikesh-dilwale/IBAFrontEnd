@@ -16,6 +16,8 @@ export class CheckExpiryComponent {
     ''
   );
 
+  expiryStatus: string | null = null;
+
   __customerService: CustomerService;
 
   constructor(__customerService: CustomerService){
@@ -25,10 +27,14 @@ export class CheckExpiryComponent {
   onSubmit(){
     this.__customerService.checkExpiryOfPolicy(this.pol_dto.policyNumber).subscribe(
       (data)=>{
+        this.expiryStatus = data.str;
+        alert('Policy Expiry Status - '+this.expiryStatus);
         localStorage.setItem('Policy Number ',data.policyNumber+'');
       },
       (err) => {
-        console.log('Error'+err);
+        console.log('Error'+err.err);
+        console.log(err.message);
+        
       }
     )
   }

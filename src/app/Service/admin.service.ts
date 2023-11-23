@@ -26,7 +26,7 @@ export class AdminService {
   doAccountLinkWithdebit1=this.contextPath + "admin/allocateDebitCardToAccount";
   getAllRequest=this.contextPath + "admin/all/requests";
   registerNewPolicy = this.contextPath + 'admin/policy/save';
-  getPolicyByAccId = this.contextPath + 'normaluser/getPolicyByAccountId';
+  getPolicyByAccId = this.contextPath + 'normalUser/getPolicyByAccountId';
   getAllPolicies = this.contextPath + 'admin/policy/allpolicies';
   deletepolicy = this.contextPath + 'admin/policy/delete/';
   updatepolicy = this.contextPath + 'admin/policy/update';
@@ -35,6 +35,13 @@ export class AdminService {
     var endpoint = this.getAccountEndPoint + userId;
     console.log('Inside Service Get account By UserId Service '+this.getAccountEndPoint);
     let outcome = this.api.get<AccountResponseDTO>(`${endpoint}`);
+    return outcome;
+  }
+
+  doApproveAccount(accountId: number, dto: AccountStatusUpdate): Observable<AccountResponseDTO>{
+    console.log("Inside Service of Approve Saving Account.");
+    var endpoint = this.updateAccountStatus + accountId;
+    let outcome = this.api.put<AccountResponseDTO>(`${endpoint}`,dto);
     return outcome;
   }
 
@@ -67,34 +74,6 @@ export class AdminService {
     console.log("Inside Service of Approve Saving Account.");
     var endpoint = this.updateAccountStatus + accountId;
     let outcome = this.api.put<AccountResponseDTO>(`${endpoint}`,dto);
-    return outcome;
-  }
-
-  registerPolicy(dto:PolicyDto): Observable<PolicyDto>{
-    console.log('inside service'+dto.policyName);
-    let outcome = this.api.post<PolicyDto>(`${this.registerNewPolicy}`,dto);
-    return outcome;
-  }
-
-  getPolicyByAccNum(accNum:number): Observable<PolicyDto[]>{
-    var endpoint = this.getPolicyByAccId+"?accNum="+accNum
-    let outcome = this.api.get<PolicyDto[]>(`${endpoint}`);
-    return outcome;
-  }
-
-  getAllPolicy(): Observable<PolicyDto[]>{
-    let outcome = this.api.get<PolicyDto[]>(`${this.getAllPolicies}`);
-    return outcome;
-  }
-
-  deletePolicy(policyNumber:number): Observable<any>{
-    let outcome = this.api.delete<any>(`${this.deletepolicy+policyNumber}`);
-    return outcome;
-  }
-
-  updatePolicy(policyNumber:number, newPremiumAmount:number): Observable<PolicyDto>{
-    var endpoint = this.updatepolicy+"?policyNumber="+policyNumber+"&newPremiumAmount="+newPremiumAmount;
-    let outcome = this.api.put<PolicyDto>(`${endpoint}`, null);
     return outcome;
   }
 

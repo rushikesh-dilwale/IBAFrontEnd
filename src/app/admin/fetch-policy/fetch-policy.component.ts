@@ -12,10 +12,11 @@ export class FetchPolicyComponent implements OnInit {
   allPolicies: PolicyDto[] = [];
   __adminService: AdminService;
 
+
   constructor(
     __adminService: AdminService
   ){
-    this.__adminService = __adminService;
+    this.__adminService = __adminService
   }
   ngOnInit(): void {
     this.doLoad()
@@ -30,6 +31,18 @@ export class FetchPolicyComponent implements OnInit {
         console.log(err);
       }
     );
+  }
+
+  doDeleteOnClick(policy:PolicyDto){
+    this.__adminService.deletePolicy(policy.policyNumber).subscribe(
+      (data) =>{
+        console.log(data);
+      },
+      (err)=>{
+        console.log(err.err);
+      }
+    );
+    this.ngOnInit();
   }
 }
 

@@ -1,6 +1,12 @@
-<form (ngSubmit)="onSubmit()">
-    <label for="pol_id">Policy Id</label>
-    <input type="text" [(ngModel)]="dto.policyNumber" id="policyNumber" name="policyNumber">
 
-    <input type="submit" class="btn btn-primary ms-2" value="Delete Policy" />
-</form>
+
+<div class="container mt-4">
+    <form (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+            <label for="policyNumber" class="form-label">Policy Id</label>
+            <input type="text" [(ngModel)]="dto.policyNumber" class="form-control" id="policyNumber" name="policyNumber">
+        </div>
+
+        <button type="submit" class="btn btn-danger">Delete Policy</button>
+    </form>
+</div>

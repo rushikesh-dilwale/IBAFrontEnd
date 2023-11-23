@@ -21,7 +21,7 @@
                             <th>Premium Amount</th>
                             <th>Sum Assured</th>
                             <th>Expiry Date</th>
-                            <th>Delete Policy</th>
+                            <th>Purchase Policy</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -31,17 +31,12 @@
                             <td>{{ policy.policyPremiumAmount | currency:'INR'}}</td>
                             <td>{{ policy.policySumAssured | currency:'INR'}}</td>
                             <td>{{ policy.policyExpiryDate }}</td>
-                            <td><button type="submit" class="btn btn-danger" (click)="doDeleteOnClick(policy)">Delete Policy</button></td>
+                            <td><button type="submit" class="btn btn-primary" (click)="buyPolicy(policy)">Buy Policy</button></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
-    </div>
-    <div class="row d-flex justify-content-around">
-        <div class="col"><app-all-policy></app-all-policy></div>
-        <!-- <div class="col"><app-delete-policy></app-delete-policy></div>
-        <div class="col"><app-link-policy></app-link-policy></div> -->
     </div>
 </div>
 

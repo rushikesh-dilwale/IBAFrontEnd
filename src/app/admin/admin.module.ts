@@ -5,13 +5,25 @@ import { GetaccountbyIdComponent } from './getaccountby-id/getaccountby-id.compo
 import { FormsModule } from '@angular/forms';
 import { ApproveAccountsComponent } from './approve-accounts/approve-accounts.component';
 import { ApproveCardComponent } from './approve-card/approve-card.component';
+import { AllPolicyComponent } from './all-policy/all-policy.component';
+import { CreateDebitCardComponent } from './create-debit-card/create-debit-card.component';
+import { CreatePolicyComponent } from './create-policy/create-policy.component';
+import { DeletePolicyComponent } from './delete-policy/delete-policy.component';
+import { FetchPolicyComponent } from './fetch-policy/fetch-policy.component';
+import { UpdatePolicyComponent } from './update-policy/update-policy.component';
 
 @NgModule({
   declarations: [
+    AllPolicyComponent,
     GetallaccountsComponent,
     GetaccountbyIdComponent,
     ApproveAccountsComponent,
-    ApproveCardComponent
+    ApproveCardComponent,
+    CreateDebitCardComponent,
+    CreatePolicyComponent,
+    DeletePolicyComponent,
+    FetchPolicyComponent,
+    UpdatePolicyComponent
   ],
   imports: [
     CommonModule,

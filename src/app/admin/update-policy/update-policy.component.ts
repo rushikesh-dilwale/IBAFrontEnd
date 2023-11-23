@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { PolicyDto } from 'src/app/DTO/policy-dto';
 import { AdminService } from 'src/app/Service/admin.service';
 
@@ -20,8 +21,10 @@ export class UpdatePolicyComponent {
   newPremiumAmount:number|null=null;
 
   __adminService: AdminService;
-  constructor(__adminService: AdminService){
+  router: Router;
+  constructor(__adminService: AdminService,router: Router){
     this.__adminService = __adminService;
+    this.router = router;
   }
 
   onSubmit(){
@@ -29,6 +32,8 @@ export class UpdatePolicyComponent {
       this.__adminService.updatePolicy(this.dto.policyNumber, this.newPremiumAmount).subscribe(
         (data)=>{
           localStorage.setItem('Updated Policy ',data+'');
+          alert('Premium Amount Updated Successfully');
+          this.router.navigate(['/adminhome']);
         },
         (err)=>{
           console.log('Policy Updation Error '+err);

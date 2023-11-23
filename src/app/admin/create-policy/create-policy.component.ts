@@ -29,6 +29,8 @@ export class CreatePolicyComponent {
     this.__adminService.registerPolicy(this.dto).subscribe(
       (data)=>{
         localStorage.setItem('policyNumber',data.policyNumber+'');
+        alert('Policy Saved Successfully');
+        this.router.navigate(['/adminhome'])
       },
       (err) => {
         console.log('Policy Creation Error '+err);

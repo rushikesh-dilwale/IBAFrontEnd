@@ -1,6 +1,10 @@
 <form (ngSubmit)="onSubmit()">
+    <h3>Check Expiry Date Of Policy</h3>
     <label for="pol_id">Policy Id</label>
     <input type="text" [(ngModel)]="pol_dto.policyNumber" id="policyNumber" name="policyNumber">
 
     <input type="submit" class="btn btn-primary ms-2" value="Check Expiry" />
+    <div *ngIf="expiryStatus !== null" class="expiryStatus">
+        <p>Expiry Status: {{ expiryStatus }}</p>
+    </div>
 </form>
