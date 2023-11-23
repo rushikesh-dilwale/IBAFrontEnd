@@ -1,0 +1,42 @@
+<div>
+    <h2>Get Transaction between Two Dates</h2>
+    <label >Account Number</label>
+    <input type="number" #accNum> <br><br>
+
+    <label >From Date</label>
+    <input required="true" type="date" id="fromdate" #from>
+    <div></div>
+    <br><br>
+    <label >To Date</label>
+    <input required="true" type="date" id="toDate" #to><br><br>
+    <button (click)="getAllTransactionFromDate(accNum.value ,from.value, to.value)">{{text}}</button>
+   
+    <table *ngIf="isVisible">
+        <thead>
+            <tr >
+                <th>TransactionId</th>
+                <th>Amount</th>
+                <th>TransactionType</th>
+                <th>Date</th>
+                <th>TransactionStatus</th>
+                <th>TransactionRemarks</th>
+            </tr>
+        </thead>
+      
+        <tbody id="accountBody">
+            <tr *ngFor="let trans of allTransaction">
+                <td>{{trans.transactionId}}</td>
+                <td>{{trans.amount | currency: 'INR'}}</td>
+                <td>{{trans.transactionType}}</td>
+                <td>{{trans.date}}</td>
+                <td style="color: green;">{{trans.transactionStatus}}</td>
+                <td>{{trans.transactionRemarks | uppercase}}</td> 
+              </tr>
+        </tbody>
+        
+    </table>
+
+
+
+</div>
+

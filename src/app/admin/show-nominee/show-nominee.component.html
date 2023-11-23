@@ -1,0 +1,31 @@
+<div>
+    <form #show="ngForm" (submit)="getAllNomineesRelatedToAccount()">
+        <label >Enter Account Number</label>
+        <input required="true" type="number" id="num" name="num" [(ngModel)]="accountId" #acc="ngModel" min="1">
+        <div *ngIf="acc.invalid==true && acc.pristine==false && acc.touched==false"></div>
+        <button [disabled]="show.invalid" type="submit">Get Information</button>
+    </form>
+    <table id = "accounts">
+        <thead>
+            <tr>
+                <th>Nominee Id</th>
+                <th>Name</th>
+                <th>Government Id</th>
+                <th>Government Id Type</th>
+                <th>Contact Details</th>
+                <th>Relation</th>
+            </tr>
+        </thead>
+        <tbody id="accountBody">
+            <tr *ngFor="let nominee of allNominees">
+                <td style="color: rgb(56, 17, 198);">{{nominee.nomineeId}}</td>
+                <td style="color: peru;">{{nominee.name}}</td>
+                <td style="color: peru;">{{nominee.govtId}}</td>
+                <td style="color: peru;">{{nominee.govtIdType | uppercase}}</td>
+                <td style="color: peru;">{{nominee.phoneNo}}</td>
+                <td style="color: peru;">{{nominee.relation}}</td> 
+              </tr>
+        </tbody>
+    </table>
+    
+</div>

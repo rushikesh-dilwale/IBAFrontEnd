@@ -6,6 +6,8 @@ import { AccountStatusUpdate } from '../DTO/account-status-update';
 import { DebitCardDto } from '../DTO/debit-card-dto';
 import { Requestdto } from '../DTO/requestdto';
 import { PolicyDto } from '../DTO/policy-dto';
+import { NomineeDTO } from '../DTO/nominee-dto';
+import { TransactionDto } from '../DTO/transaction-dto';
 
 @Injectable({
   providedIn: 'root'
@@ -31,6 +33,8 @@ export class AdminService {
   deletepolicy = this.contextPath + 'admin/policy/delete/';
   updatepolicy = this.contextPath + 'admin/policy/update';
   deleteReequest = this.contextPath + 'admin/remove/request';
+  getAllNomineesOfAccount=this.contextPath+'normalUser/listAllNominee';
+  trasnactionBetweenTwoDate=this.contextPath+'normalUser/listAllTransactions';
 
   dogetRegisteredAccount(userId: number): Observable<AccountResponseDTO>{
     var endpoint = this.getAccountEndPoint + userId;
@@ -125,5 +129,17 @@ export class AdminService {
     var endpoint = this.updatepolicy+"?policyNumber="+policyNumber+"&newPremiumAmount="+newPremiumAmount;
     let outcome = this.api.put<PolicyDto>(`${endpoint}`, null);
     return outcome;
+  }
+
+  getAllNominees(accId:Number):Observable<NomineeDTO[]>{
+    var endpoint=this.getAllNomineesOfAccount+"?accountId="+accId;
+    let result=this.api.get<NomineeDTO[]>(`${endpoint}`);
+    return result;
+  }
+
+  listAllTrasnaction(accountId:number,from:string,to:string):Observable<TransactionDto[]>{
+    var endpoint=this.trasnactionBetweenTwoDate+"?accountId="+accountId+"&from="+from+"&to="+to;
+    let result=this.api.get<TransactionDto[]>(`${endpoint}`);
+    return result;
   }
 }
