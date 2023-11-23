@@ -5,6 +5,9 @@ import { NomineeDTO } from '../DTO/nominee-dto';
 import { Router } from '@angular/router';
 import { TransactionDto } from '../DTO/transaction-dto';
 import { DepositDTO } from '../DTO/deposit-dto';
+import { DebitCardDto } from '../DTO/debit-card-dto';
+import { Requestdto } from '../DTO/requestdto';
+
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +24,8 @@ export class CustomerService {
   deleteNomineeById=this.contextpath+'customer/deleteNomineeById'
   depositAmount=this.contextpath+'customer/deposit'
   withdrawAmount=this.contextpath+'customer/withdraw'
+
+
 
   addNewNominee(dto:NomineeDTO):Observable<NomineeDTO>{
     let result=this.api.post<NomineeDTO>(
@@ -60,6 +65,25 @@ export class CustomerService {
     var endpoint = this.depositAmount + "?accountId=" + accountId + "&amount=" +amount;
     let result=this.api.put<TransactionDto>(`${endpoint}`,dto);
     return result;
+  }
+  
+  changeDebitCardPin(debitCardNumber: number, newPin: number): Observable<DebitCardDto> {
+    var link = this.contextpath+'customer/'+debitCardNumber+'/change-pin';
+    var endpoint = link+'?newPin='+newPin;
+    return this.api.put<DebitCardDto>(`${endpoint}`, []);
+  }
+  requestNewDebitCard(debitCardNumber: number): Observable<DebitCardDto> {
+    var endpoint = `${this.contextpath}customer/${debitCardNumber}/request-new-card`;
+    return this.api.put<DebitCardDto>(`${endpoint}`, []);
+  }
+  checkDebitCardExpiry(debitCardNumber: number): Observable<string> {
+    var endpoint = this.contextpath + 'customer/' + debitCardNumber + '/check-expiry';
+    return this.api.get<string>(`${endpoint}`);
+  }
+
+  generaterequest(dto:Requestdto):Observable<Requestdto>{
+    var endpoint=this.contextpath +'customer/request/save';
+    return this.api.post<Requestdto>(`${endpoint}`,dto);
   }
 
 }

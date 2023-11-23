@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AccountResponseDTO } from '../DTO/account-response-dto';
 import { AccountStatusUpdate } from '../DTO/account-status-update';
+import { DebitCardDto } from '../DTO/debit-card-dto';
+import { Requestdto } from '../DTO/requestdto';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +23,10 @@ export class AdminService {
   getAccountsByStatus = this.contextPath + "admin/account/pending";
   updateSavingAccount = this.contextPath + "admin/updateSavingsAccount/";
   updateCurrentAccount = this.contextPath + "admin/updateCurrentAccount/";
-  updateAccountStatus = this.contextPath + "admin/account/status/"
+  updateAccountStatus = this.contextPath + "admin/account/status/";
+  createNewDebitCard=this.contextPath + "admin/createDebitCard";
+  doAccountLinkWithdebit1=this.contextPath + "admin/allocateDebitCardToAccount";
+  getAllRequest=this.contextPath + "admin/all/requests"
 
   doSavingAccountRegistration(dto:AccountResponseDTO): Observable<AccountResponseDTO>{
     console.log('Inside Service of saving account register'+dto.accountHolderName);
@@ -73,6 +78,12 @@ export class AdminService {
     return outcome;
   }
 
+  dogetAllRequests():Observable<Requestdto[]>{
+    console.log("Inside Service");
+    let outcome=this.api.get<Requestdto[]>(`${this.getAllRequest}`)
+    return outcome;
+  }
+
   doApproveSavingAccount(accountId: number, dto: AccountResponseDTO): Observable<AccountResponseDTO>{
     console.log("Inside Service of Approve Saving Account.");
     var endpoint = this.updateSavingAccount + accountId;
@@ -91,6 +102,21 @@ export class AdminService {
     console.log("Inside Service of Approve Saving Account.");
     var endpoint = this.updateAccountStatus + accountId;
     let outcome = this.api.put<AccountResponseDTO>(`${endpoint}`,dto);
+    return outcome;
+  }
+
+  createDebitCard(dto:DebitCardDto): Observable<number>{
+    console.log('Inside Service '+dto.issueDate);
+    let outcome = this.api.post<number>(
+      `${this.createNewDebitCard}`, dto
+    );
+    return outcome;
+  }
+
+  doAccountLinkWithdebit(accNum:number,debitCardNumber:number):Observable<DebitCardDto>{
+    var endpoint = this.doAccountLinkWithdebit1 + "?accNum="+accNum+"&debitCardNum="+debitCardNumber;
+    console.log('Inside Service ');
+    let outcome =this.api.put<DebitCardDto>(`${endpoint}`,[]);
     return outcome;
   }
 }

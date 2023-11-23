@@ -8,6 +8,10 @@ import { ViewNomineeIdComponent } from './view-nominee-id/view-nominee-id.compon
 import { AddNomineeComponent } from './add-nominee/add-nominee.component';
 import { DepositAmountsComponent } from './deposit-amounts/deposit-amounts.component';
 import { ViewNomineeComponent } from './view-nominee/view-nominee.component';
+import { RequestNewCardComponent } from './request-new-card/request-new-card.component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -18,7 +22,9 @@ import { ViewNomineeComponent } from './view-nominee/view-nominee.component';
     AddNomineeComponent,
     UpdateAccountComponent,
     DepositAmountsComponent,
-    ViewNomineeComponent
+    ViewNomineeComponent,
+    RequestNewCardComponent
+    
   ],
   imports: [
     CommonModule,
