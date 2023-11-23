@@ -30,7 +30,16 @@ import { CheckExpiryComponent } from './customer/check-expiry/check-expiry.compo
 import { UpdateAccountComponent } from './customer/update-account/update-account.component';
 import { LinkPolicyComponent } from './customer/link-policy/link-policy.component';
 import { DebitCheckExpiryComponent } from './customer/debit-check-expiry/debit-check-expiry.component';
-
+import { UpdateAccountComponent } from './customer/update-account/update-account.component';
+import { CreatePolicyComponent } from './admin/create-policy/create-policy.component';
+import { UpdatePolicyComponent } from './admin/update-policy/update-policy.component';
+import { DeletePolicyComponent } from './admin/delete-policy/delete-policy.component';
+import { AllPolicyComponent } from './admin/all-policy/all-policy.component';
+import { FetchPolicyComponent } from './admin/fetch-policy/fetch-policy.component';
+import { LinkPolicyComponent } from './customer/link-policy/link-policy.component';
+import { CheckExpiryComponent } from './customer/check-expiry/check-expiry.component';
+import { CreateBeneficiaryComponent } from './customer/create-beneficiary/create-beneficiary.component';
+import { ViewBeneficiaryIdComponent } from './customer/view-beneficiary-id/view-beneficiary-id.component';
 
 const routes: Routes = [
   { path: "login", component:LoginPageComponent },
@@ -46,17 +55,12 @@ const routes: Routes = [
   { path: 'admin/all/account', component: GetallaccountsComponent },
   { path: 'admin/id', component: GetaccountbyIdComponent },
   { path: 'customer/home', component: CustomerComponent },
-  { path: 'customer/nominee',component:AddNomineeComponent},
-  { path: 'normalUser/viewNominee',component:ViewNomineeComponent},
-  { path: 'normalUser/viewNomineeById',component:ViewNomineeIdComponent},
-  { path: 'customer/deposit1',component:DepositAmountsComponent},
+
   { path: 'admin/approve', component: ApproveAccountsComponent },
   { path: 'beneficiary', component: CreateBeneficiaryComponent},
   { path: 'admin/approve/card', component: ApproveCardComponent },
   { path: 'create-debit-card', component: CreateDebitCardComponent},
   { path: 'view/beneficiary', component: ViewBeneficiaryIdComponent},
-  { path: 'create-policy', component: CreatePolicyComponent},
-  { path: 'update-policy', component: UpdatePolicyComponent},
   { path: 'all-policy-by-accnum', component: AllPolicyComponent},
   { path: 'fetch-policy', component: FetchPolicyComponent},
   { path: 'customer/change-pin', component: ChangePinComponent},
@@ -65,6 +69,15 @@ const routes: Routes = [
   { path: 'customer/update', component: UpdateAccountComponent },
   { path: 'link-policy', component: LinkPolicyComponent},
    { path: 'debit-check-expiry', component: DebitCheckExpiryComponent},
+  { path: 'customer/nominee',component: AddNomineeComponent},
+  { path: 'normalUser/viewNominee',component: ViewNomineeComponent},
+  { path: 'normalUser/viewNomineeById',component: ViewNomineeIdComponent},
+  { path: 'customer/deposit1',component: DepositAmountsComponent},
+  { path: 'admin/approve', component: ApproveAccountsComponent },
+
+  { path: 'create-policy', component:CreatePolicyComponent},
+  { path: 'update-policy', component:UpdatePolicyComponent},
+  { path: 'delete-policy', component:DeletePolicyComponent},
 ];
 
 @NgModule({

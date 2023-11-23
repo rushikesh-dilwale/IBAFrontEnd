@@ -40,7 +40,8 @@ import { CheckExpiryComponent } from './customer/check-expiry/check-expiry.compo
     DeletePolicyComponent,
     AllPolicyComponent,
     FetchPolicyComponent,
-    LinkPolicyComponent
+    LinkPolicyComponent,
+    CheckExpiryComponent
   ],
   imports: [
     BrowserModule,

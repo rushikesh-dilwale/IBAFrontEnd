@@ -5,6 +5,8 @@ import { NomineeDTO } from '../DTO/nominee-dto';
 import { Router } from '@angular/router';
 import { TransactionDto } from '../DTO/transaction-dto';
 import { DepositDTO } from '../DTO/deposit-dto';
+import { AccountResponseDTO } from '../DTO/account-response-dto';
+import { BeneficiaryDto } from '../DTO/beneficiary-dto';
 
 import { DebitCardDto } from '../DTO/debit-card-dto';
 import { Requestdto } from '../DTO/requestdto';
@@ -151,6 +153,43 @@ export class CustomerService {
   generaterequest(dto:Requestdto):Observable<Requestdto>{
     var endpoint=this.contextpath +'customer/request/save';
     return this.api.post<Requestdto>(`${endpoint}`,dto);
+  }
+
+  allocatePolicy(polNum:number,accNum:number): Observable<AccountResponseDTO>{
+    var endpoint = this.linkPolicy+'?policyId='+polNum+'&accNum='+accNum
+    let outcome = this.api.put<AccountResponseDTO>(`${endpoint}`, null);
+    return outcome;
+  }
+
+  checkExpiryOfPolicy(policyNumber:number): Observable<any>{
+    var endpoint = this.checkExpiry+'?policyNumber='+policyNumber;
+    let outcome = this.api.get<any>(`${endpoint}`);
+    return outcome;
+  }
+
+  doCreateBeneficiary(dto: BeneficiaryDto): Observable<BeneficiaryDto>{
+    let outcome = this.api.post<BeneficiaryDto>(`${this.createBeneficiary}`,dto);
+    return outcome;
+  }
+
+  dolinkBeneficiarywithAccount(accountid:number,beneficiaryId:number): Observable<BeneficiaryDto>
+  {
+    var endpoint = this.linkBeneficiary + "?accNum="+accountid+"&beneficiaryId="+beneficiaryId;
+    console.log('Inside Service of do Beneficiary link with account.');
+    let outcome = this.api.put<BeneficiaryDto>(`${endpoint}`,[]);
+    return outcome;
+  }
+
+  dodeleteBeneficiary(beneficiaryId:number): Observable<any>{
+    var endpoint=this.deleteBeneficiary +"?beneficiaryId="+beneficiaryId;
+    let result=this.api.delete<any>(`${endpoint}`);
+    return result
+  }
+
+  doFindBeneficiaryByID(accountId:number): Observable<BeneficiaryDto[]>{
+    var endpoint=this.findBeneficiarybyId +"?accountid="+accountId;
+    let result=this.api.get<BeneficiaryDto[]>(`${endpoint}`);
+    return result
   }
 
   allocatePolicy(polNum:number,accNum:number): Observable<AccountResponseDTO>{
