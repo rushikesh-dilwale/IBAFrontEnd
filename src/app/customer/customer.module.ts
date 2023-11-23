@@ -8,8 +8,14 @@ import { ViewNomineeIdComponent } from './view-nominee-id/view-nominee-id.compon
 import { AddNomineeComponent } from './add-nominee/add-nominee.component';
 import { DepositAmountsComponent } from './deposit-amounts/deposit-amounts.component';
 import { ViewNomineeComponent } from './view-nominee/view-nominee.component';
-import { CreateBeneficiaryComponent } from './create-beneficiary/create-beneficiary.component';
+import { RequestNewCardComponent } from './request-new-card/request-new-card.component';
 import { ViewBeneficiaryIdComponent } from './view-beneficiary-id/view-beneficiary-id.component';
+import { CreateBeneficiaryComponent } from './create-beneficiary/create-beneficiary.component';
+import { CheckExpiryComponent } from './check-expiry/check-expiry.component';
+import { DebitCheckExpiryComponent } from './debit-check-expiry/debit-check-expiry.component';
+import { ChangePinComponent } from './change-pin/change-pin.component';
+import { LinkPolicyComponent } from './link-policy/link-policy.component';
+
 
 @NgModule({
   declarations: [
@@ -21,8 +27,12 @@ import { ViewBeneficiaryIdComponent } from './view-beneficiary-id/view-beneficia
     UpdateAccountComponent,
     DepositAmountsComponent,
     ViewNomineeComponent,
+    RequestNewCardComponent,
     CreateBeneficiaryComponent,
-    ViewBeneficiaryIdComponent
+    ViewBeneficiaryIdComponent,
+    CheckExpiryComponent,
+    DebitCheckExpiryComponent,
+    ChangePinComponent
   ],
   imports: [
     CommonModule,
