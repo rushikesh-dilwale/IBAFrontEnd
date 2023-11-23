@@ -2,9 +2,9 @@
 
     <div class="card">
         <div class="card-body">
-        <form (ngSubmit) = "doSubmit(accType.value)" #form="ngForm">
+        <form (ngSubmit) = "doSubmitForm(accType.value)" #form="ngForm">
             <div class="container mt-2">
-                <h3 class="font-weight-bold text-info text-center">Account Registration Form</h3><br>
+                <h3 class="font-weight-bold text-info text-center">Update Account Form</h3><br>
             </div>
             <table class="table">
                 <tr>
@@ -76,7 +76,7 @@
                 </tr>
             </table>
             <div class="text-center mt-3">
-                <input type="submit" class="btn btn-primary ms-2" value="Add Account" />
+                <input type="submit" class="btn btn-primary ms-2" value="Update Account" />
             </div>
         </form>
     </div>

@@ -5,6 +5,8 @@ import { AccountResponseDTO } from '../DTO/account-response-dto';
 import { AccountStatusUpdate } from '../DTO/account-status-update';
 import { DebitCardDto } from '../DTO/debit-card-dto';
 import { Requestdto } from '../DTO/requestdto';
+import { PolicyDto } from '../DTO/policy-dto';
+
 
 @Injectable({
   providedIn: 'root'
@@ -14,10 +16,7 @@ export class AdminService {
   constructor(private api: HttpClient) { }
 
   contextPath = 'http://localhost:5005/';
-  addSavingAccountEndPoint = this.contextPath + 'admin/saveSavingsAccountDto';
-  addCurrentAccountEndPoint = this.contextPath + 'admin/saveCurrentAcoountDto';
   getAccountEndPoint = this.contextPath + 'normalUser/account/userId?userId=';
-  linkAccount = this.contextPath + "admin/usertoaccount";
   getAllAccounts = this.contextPath + "admin/getallaccounts";
   getAccountById = this.contextPath + "normalUser/getAccountById?accountId=";
   getAccountsByStatus = this.contextPath + "admin/account/pending";
@@ -44,18 +43,17 @@ export class AdminService {
     return outcome;
   }
 
+  updateAccountStatus = this.contextPath + "admin/account/status/";
+  registerNewPolicy = this.contextPath + 'admin/policy/save';
+  getPolicyByAccId = this.contextPath + 'normaluser/getPolicyByAccountId';
+  getAllPolicies = this.contextPath + 'admin/policy/allpolicies';
+  deletepolicy = this.contextPath + 'admin/policy/delete/';
+  updatepolicy = this.contextPath + 'admin/policy/update';
+
   dogetRegisteredAccount(userId: number): Observable<AccountResponseDTO>{
     var endpoint = this.getAccountEndPoint + userId;
     console.log('Inside Service Get account By UserId Service '+this.getAccountEndPoint);
     let outcome = this.api.get<AccountResponseDTO>(`${endpoint}`);
-    return outcome;
-  }
-
-  doAccountLinkWithid(accountid:number,userId:number): Observable<AccountResponseDTO>
-  {
-    var endpoint = this.linkAccount + "?accNum="+accountid+"&userId="+userId;
-    console.log('Inside Service of do account link with user.');
-    let outcome = this.api.put<AccountResponseDTO>(`${endpoint}`,[]);
     return outcome;
   }
 
@@ -117,6 +115,33 @@ export class AdminService {
     var endpoint = this.doAccountLinkWithdebit1 + "?accNum="+accNum+"&debitCardNum="+debitCardNumber;
     console.log('Inside Service ');
     let outcome =this.api.put<DebitCardDto>(`${endpoint}`,[]);
+  }
+
+  registerPolicy(dto:PolicyDto): Observable<PolicyDto>{
+    console.log('inside service'+dto.policyName);
+    let outcome = this.api.post<PolicyDto>(`${this.registerNewPolicy}`,dto);
+    return outcome;
+  }
+
+  getPolicyByAccNum(accNum:number): Observable<PolicyDto[]>{
+    var endpoint = this.getPolicyByAccId+"?accNum="+accNum
+    let outcome = this.api.get<PolicyDto[]>(`${endpoint}`);
+    return outcome;
+  }
+
+  getAllPolicy(): Observable<PolicyDto[]>{
+    let outcome = this.api.get<PolicyDto[]>(`${this.getAllPolicies}`);
+    return outcome;
+  }
+
+  deletePolicy(policyNumber:number): Observable<any>{
+    let outcome = this.api.delete<any>(`${this.deletepolicy+policyNumber}`);
+    return outcome;
+  }
+
+  updatePolicy(policyNumber:number, newPremiumAmount:number): Observable<PolicyDto>{
+    var endpoint = this.updatepolicy+"?policyNumber="+policyNumber+"&newPremiumAmount="+newPremiumAmount;
+    let outcome = this.api.put<PolicyDto>(`${endpoint}`, null);
     return outcome;
   }
 }

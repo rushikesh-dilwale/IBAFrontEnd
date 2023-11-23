@@ -17,9 +17,13 @@ import { AdminModule } from './admin/admin.module';
 import { CreateDebitCardComponent } from './admin/create-debit-card/create-debit-card.component';
 import { ChangePinComponent } from './customer/change-pin/change-pin.component';
 import { CheckExpiryComponent } from './customer/check-expiry-component/check-expiry-component.component';
-
-
-
+import { CreatePolicyComponent } from './admin/create-policy/create-policy.component';
+import { UpdatePolicyComponent } from './admin/update-policy/update-policy.component';
+import { DeletePolicyComponent } from './admin/delete-policy/delete-policy.component';
+import { AllPolicyComponent } from './admin/all-policy/all-policy.component';
+import { FetchPolicyComponent } from './admin/fetch-policy/fetch-policy.component';
+import { LinkPolicyComponent } from './customer/link-policy/link-policy.component';
+import { CheckExpiryComponent } from './customer/check-expiry/check-expiry.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +38,13 @@ import { CheckExpiryComponent } from './customer/check-expiry-component/check-ex
     CreateDebitCardComponent,
     ChangePinComponent,
     CheckExpiryComponent
-    
+    CreatePolicyComponent,
+    UpdatePolicyComponent,
+    DeletePolicyComponent,
+    AllPolicyComponent,
+    FetchPolicyComponent,
+    LinkPolicyComponent,
+    CheckExpiryComponent
   ],
   imports: [
     BrowserModule,

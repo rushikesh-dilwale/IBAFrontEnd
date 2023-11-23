@@ -1,0 +1,6 @@
+<form (ngSubmit)="onSubmit()">
+    <label for="pol_id">Policy Id</label>
+    <input type="text" [(ngModel)]="dto.policyNumber" id="policyNumber" name="policyNumber">
+
+    <input type="submit" class="btn btn-primary ms-2" value="Delete Policy" />
+</form>

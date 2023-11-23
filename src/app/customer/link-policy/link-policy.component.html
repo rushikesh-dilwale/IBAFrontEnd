@@ -1,0 +1,9 @@
+<form (ngSubmit)="onSubmit()">
+    <label for="acc_id">Account Id</label>
+    <input type="text" [(ngModel)]="dto.accountId" id="accountId" name="accountId">
+
+    <label for="pol_id">Policy Id</label>
+    <input type="text" [(ngModel)]="pol_dto.policyNumber" id="policyNumber" name="policyNumber">
+
+    <input type="submit" class="btn btn-primary ms-2" value="Buy Policy" />
+</form>

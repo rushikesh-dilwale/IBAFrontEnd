@@ -9,9 +9,8 @@ import { AddNomineeComponent } from './add-nominee/add-nominee.component';
 import { DepositAmountsComponent } from './deposit-amounts/deposit-amounts.component';
 import { ViewNomineeComponent } from './view-nominee/view-nominee.component';
 import { RequestNewCardComponent } from './request-new-card/request-new-card.component';
-
-
-
+import { CreateBeneficiaryComponent } from './create-beneficiary/create-beneficiary.component';
+import { ViewBeneficiaryIdComponent } from './view-beneficiary-id/view-beneficiary-id.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +23,8 @@ import { RequestNewCardComponent } from './request-new-card/request-new-card.com
     DepositAmountsComponent,
     ViewNomineeComponent,
     RequestNewCardComponent
-    
+    CreateBeneficiaryComponent,
+    ViewBeneficiaryIdComponent
   ],
   imports: [
     CommonModule,

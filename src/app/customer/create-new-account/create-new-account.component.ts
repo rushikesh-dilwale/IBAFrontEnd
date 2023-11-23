@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AccountResponseDTO } from 'src/app/DTO/account-response-dto';
-import { AdminService } from 'src/app/Service/admin.service';
+import { CustomerService } from 'src/app/Service/customer.service';
 
 @Component({
   selector: 'app-create-new-account',
@@ -23,17 +23,17 @@ export class CreateNewAccountComponent {
     ''
   );
   
-  __adminService: AdminService;
+  __customerService: CustomerService;
   router: Router;
-  constructor(__adminService: AdminService,router: Router){
-    this.__adminService = __adminService;
+  constructor(__customerService: CustomerService,router: Router){
+    this.__customerService = __customerService;
     this.router = router;
   }
 
   doSubmit(accType:string){
     console.log(this.dto+' - account type '+accType);
     if(accType == "saving"){
-      this.__adminService.doSavingAccountRegistration(this.dto).subscribe(
+      this.__customerService.doSavingAccountRegistration(this.dto).subscribe(
         (data) => {
           console.log('Account Added. Account Num - '+data.accountId);
           localStorage.setItem("accountId",data.accountId+'');
@@ -42,7 +42,7 @@ export class CreateNewAccountComponent {
           let usercode = localStorage.getItem('userID');
           if(usercode != null)
           {
-            this.__adminService.doAccountLinkWithid(data.accountId,parseInt(usercode)).
+            this.__customerService.doAccountLinkWithid(data.accountId,parseInt(usercode)).
             subscribe((data)=>{
               alert("Account Openned : "+data.accountId);
               this.router.navigateByUrl("/customer/home");
@@ -57,7 +57,7 @@ export class CreateNewAccountComponent {
         }
       )
     } else if(accType == "current"){
-      this.__adminService.doCurrentAccountRegistration(this.dto).subscribe(
+      this.__customerService.doCurrentAccountRegistration(this.dto).subscribe(
         (data) => {
           console.log('Account Added. Account Num - '+data.accountId);
           localStorage.setItem("accountId",data.accountId+'');
@@ -66,7 +66,7 @@ export class CreateNewAccountComponent {
           let usercode = localStorage.getItem('userID');
           if(usercode != null)
           {
-            this.__adminService.doAccountLinkWithid(data.accountId,parseInt(usercode)).
+            this.__customerService.doAccountLinkWithid(data.accountId,parseInt(usercode)).
             subscribe((data)=>{
               alert("Account Openned : "+data.accountId);
               this.router.navigateByUrl("/customer/home");

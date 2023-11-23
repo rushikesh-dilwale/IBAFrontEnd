@@ -5,9 +5,11 @@ import { NomineeDTO } from '../DTO/nominee-dto';
 import { Router } from '@angular/router';
 import { TransactionDto } from '../DTO/transaction-dto';
 import { DepositDTO } from '../DTO/deposit-dto';
+
 import { DebitCardDto } from '../DTO/debit-card-dto';
 import { Requestdto } from '../DTO/requestdto';
-
+import { AccountResponseDTO } from '../DTO/account-response-dto';
+import { BeneficiaryDto } from '../DTO/beneficiary-dto';
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +27,72 @@ export class CustomerService {
   depositAmount=this.contextpath+'customer/deposit'
   withdrawAmount=this.contextpath+'customer/withdraw'
 
+  addSavingAccountEndPoint = this.contextpath + 'customer/saveSavingsAccountDto';
+  addCurrentAccountEndPoint = this.contextpath + 'customer/saveCurrentAcoountDto';
+  linkAccount = this.contextpath + "customer/usertoaccount";
+  updateSavingAccount = this.contextpath + "customer/updateSavingsAccount/";
+  updateCurrentAccount = this.contextpath + "customer/updateCurrentAccount/";
+  getAccountEndPoint = this.contextpath + 'normalUser/account/userId?userId=';
+  getAccountById = this.contextpath + "normalUser/getAccountById?accountId=";
+  linkPolicy = this.contextpath+'customer/allocatePolicyToAccount';
+  checkExpiry = this.contextpath+'customer/policy/check-expiry';
 
+  createBeneficiary = this.contextpath + 'customer/addBeneficiary';
+  linkBeneficiary = this.contextpath + 'customer/allocateBeneficiaryToAccount';
+  deleteBeneficiary = this.contextpath + 'customer/deleteBeneficiary';
+  findBeneficiarybyId = this.contextpath + 'normalUser/listAllBeneficiariesbyAccount';
+
+  dogetRegisteredAccount(userId: number): Observable<AccountResponseDTO>{
+    var endpoint = this.getAccountEndPoint + userId;
+    console.log('Inside Service Get account By UserId Service '+this.getAccountEndPoint);
+    let outcome = this.api.get<AccountResponseDTO>(`${endpoint}`);
+    return outcome;
+  }
+
+  dogetAccountById(accountId: number): Observable<AccountResponseDTO>{
+    console.log("Inside Service of Get Account By Account Id.");
+    var endpoint = this.getAccountById + accountId;
+    let outcome = this.api.get<AccountResponseDTO>(`${endpoint}`);
+    return outcome;
+  }
+
+  doSavingAccountRegistration(dto:AccountResponseDTO): Observable<AccountResponseDTO>{
+    console.log('Inside Service of saving account register'+dto.accountHolderName);
+    let outcome = this.api.post<AccountResponseDTO>(
+      `${this.addSavingAccountEndPoint}`, dto
+    );
+    return outcome;
+  }
+
+  doCurrentAccountRegistration(dto:AccountResponseDTO): Observable<AccountResponseDTO>{
+    console.log('Inside Service of current account register'+dto.accountHolderName);
+    let outcome = this.api.post<AccountResponseDTO>(
+      `${this.addCurrentAccountEndPoint}`, dto
+    );
+    return outcome;
+  }
+
+  doAccountLinkWithid(accountid:number,userId:number): Observable<AccountResponseDTO>
+  {
+    var endpoint = this.linkAccount + "?accNum="+accountid+"&userId="+userId;
+    console.log('Inside Service of do account link with user.');
+    let outcome = this.api.put<AccountResponseDTO>(`${endpoint}`,[]);
+    return outcome;
+  }
+
+  doUpdateSavingAccount(accountId: number, dto: AccountResponseDTO): Observable<AccountResponseDTO>{
+    console.log("Inside Service of Approve Saving Account.");
+    var endpoint = this.updateSavingAccount + accountId;
+    let outcome = this.api.put<AccountResponseDTO>(`${endpoint}`,dto);
+    return outcome;
+  }
+
+  doUpdateCurrentAccount(accountId: number, dto: AccountResponseDTO): Observable<AccountResponseDTO>{
+    console.log("Inside Service of Approve Current Account.");
+    var endpoint = this.updateCurrentAccount + accountId;
+    let outcome = this.api.put<AccountResponseDTO>(`${endpoint}`,dto);
+    return outcome;
+  }
 
   addNewNominee(dto:NomineeDTO):Observable<NomineeDTO>{
     let result=this.api.post<NomineeDTO>(
@@ -84,6 +151,43 @@ export class CustomerService {
   generaterequest(dto:Requestdto):Observable<Requestdto>{
     var endpoint=this.contextpath +'customer/request/save';
     return this.api.post<Requestdto>(`${endpoint}`,dto);
+  }
+
+  allocatePolicy(polNum:number,accNum:number): Observable<AccountResponseDTO>{
+    var endpoint = this.linkPolicy+'?policyId='+polNum+'&accNum='+accNum
+    let outcome = this.api.put<AccountResponseDTO>(`${endpoint}`, null);
+    return outcome;
+  }
+
+  checkExpiryOfPolicy(policyNumber:number): Observable<any>{
+    var endpoint = this.checkExpiry+'?policyNumber='+policyNumber;
+    let outcome = this.api.get<any>(`${endpoint}`);
+    return outcome;
+  }
+
+  doCreateBeneficiary(dto: BeneficiaryDto): Observable<BeneficiaryDto>{
+    let outcome = this.api.post<BeneficiaryDto>(`${this.createBeneficiary}`,dto);
+    return outcome;
+  }
+
+  dolinkBeneficiarywithAccount(accountid:number,beneficiaryId:number): Observable<BeneficiaryDto>
+  {
+    var endpoint = this.linkBeneficiary + "?accNum="+accountid+"&beneficiaryId="+beneficiaryId;
+    console.log('Inside Service of do Beneficiary link with account.');
+    let outcome = this.api.put<BeneficiaryDto>(`${endpoint}`,[]);
+    return outcome;
+  }
+
+  dodeleteBeneficiary(beneficiaryId:number): Observable<any>{
+    var endpoint=this.deleteBeneficiary +"?beneficiaryId="+beneficiaryId;
+    let result=this.api.delete<any>(`${endpoint}`);
+    return result
+  }
+
+  doFindBeneficiaryByID(accountId:number): Observable<BeneficiaryDto[]>{
+    var endpoint=this.findBeneficiarybyId +"?accountid="+accountId;
+    let result=this.api.get<BeneficiaryDto[]>(`${endpoint}`);
+    return result
   }
 
 }

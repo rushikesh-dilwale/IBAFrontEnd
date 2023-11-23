@@ -22,7 +22,7 @@
           <td>{{ account.emailId }}</td>
           <td>{{ account.age }}</td>
           <td>{{ account.gender }}</td>
-          <td>{{ account.balance }}</td>
+          <td>{{ account.balance | currency: 'INR'}}</td>
           <td>{{ account.dateOfOpening }}</td>
           <td>{{ account.accountStatus }}</td>
         </tr>
