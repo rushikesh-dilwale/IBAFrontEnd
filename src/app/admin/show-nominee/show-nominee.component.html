@@ -1,13 +1,16 @@
-<div>
-    <form #show="ngForm" (submit)="getAllNomineesRelatedToAccount()">
-        <label >Enter Account Number</label>
-        <input required="true" type="number" id="num" name="num" [(ngModel)]="accountId" #acc="ngModel" min="1">
-        <div *ngIf="acc.invalid==true && acc.pristine==false && acc.touched==false"></div>
-        <button [disabled]="show.invalid" type="submit">Get Information</button>
-    </form>
-    <table id = "accounts">
+<div >
+    <div class="card-body d-flex align-items-center">
+        <form #show="ngForm" (submit)="getAllNomineesRelatedToAccount()">
+            <label for="nomineeId" style="margin-right: 20px;" class="me-20">Enter Account Number -</label>
+            <input required="true" type="number" id="num" name="num" [(ngModel)]="accountId" #acc="ngModel" min="1" class="form-control me-30"/>
+            <div *ngIf="acc.invalid==true && acc.pristine==false && acc.touched==false"></div>
+            <button class="btn-primary" [disabled]="show.invalid" type="submit">Get Information</button>
+        </form>
+    </div>
+    
+    <table class="table">
         <thead>
-            <tr>
+            <tr >
                 <th>Nominee Id</th>
                 <th>Name</th>
                 <th>Government Id</th>
@@ -16,6 +19,7 @@
                 <th>Relation</th>
             </tr>
         </thead>
+      
         <tbody id="accountBody">
             <tr *ngFor="let nominee of allNominees">
                 <td style="color: rgb(56, 17, 198);">{{nominee.nomineeId}}</td>
@@ -26,6 +30,5 @@
                 <td style="color: peru;">{{nominee.relation}}</td> 
               </tr>
         </tbody>
-    </table>
-    
+    </table>  
 </div>

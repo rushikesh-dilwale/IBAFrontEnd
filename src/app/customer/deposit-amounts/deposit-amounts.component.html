@@ -21,10 +21,11 @@
                         </td>
                     </tr>
                 </table>
-               
+                <div class="text-center mt-3">
+                    <button type="submit" class="btn btn-primary ms-5" style="margin-right: 20px;" [disabled]="depositForm.invalid">Deposit</button>
+                </div>
             </form>
             <div class="text-center mt-3">
-                <button type="submit" class="btn btn-primary ms-5" style="margin-right: 20px;" [disabled]="depositForm.invalid">Deposit</button>
                 <button class="btn btn-primary ms-5" [disabled]="depositForm.invalid" (click)="withdraw()">Withdraw</button>
             </div>
         </div> 
